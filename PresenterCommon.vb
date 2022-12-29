@@ -30,12 +30,6 @@
 		Form.Opacity = 100
 	End Sub
 
-	Async Sub Disable(button As Button)
-		button.Enabled = False
-		Await Task.Delay(1500)
-		button.Enabled = True
-	End Sub
-
 	Sub Notify(notif As UserControl)
 		NotificationUtils.ShowNotification(notif, Form)
 	End Sub

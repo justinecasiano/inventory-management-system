@@ -8,7 +8,7 @@
 		DataTable.TableName = "Users"
 		Commands = New Commands
 		With Commands
-			.SelectCommand = "SELECT * FROM [Users]"
+			.SelectCommand = "SELECT * FROM [Users] ORDER BY [Role]"
 			.InsertCommand = "INSERT INTO [Users] ([Role], [Username], [Password], [Remember Me]) VALUES(?, ?, ?, ?)"
 			.UpdateCommand = "UPDATE [Users] SET [Role]=?, [Username]=?, [Password]=?, [Remember Me]=? WHERE [Username]=?"
 			.DeleteCommand = "DELETE FROM [Users] WHERE [Username]='?'"

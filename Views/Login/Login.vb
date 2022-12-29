@@ -20,13 +20,16 @@
 										   row.Field(Of String)("Password").Equals(password)) _
 					  .Select(Function(row) row).SingleOrDefault
 
-		PresenterCommon.Disable(btnLogin)
+		btnLogin.Enabled = False
 		If account IsNot Nothing Then
+			DataUtils.UserRole = account.Field(Of String)("Role")
 			PresenterCommon.Notify(New LoginSuccess)
 			Await Task.Delay(2500)
 			PresenterCommon.Switch(View.Dashboard, True, FormWindowState.Maximized)
 		Else
 			PresenterCommon.Notify(New LoginError)
+			Await Task.Delay(1500)
+			btnLogin.Enabled = True
 		End If
 	End Sub
 

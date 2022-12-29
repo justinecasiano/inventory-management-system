@@ -12,6 +12,10 @@ Public Class Dashboard
 	End Sub
 
 	Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
+		If DataUtils.UserRole.Equals("Staff") Then
+			lblUser.Text = UserRole
+			btnUsers.Hide()
+		End If
 		Switch(Grid.Inventory)
 	End Sub
 
@@ -40,14 +44,6 @@ Public Class Dashboard
 			Switch(Grid.Users)
 		Else
 			Switch(Grid.Inventory)
-		End If
-	End Sub
-
-	Private Sub btnAction(sender As Object, e As EventArgs) Handles btnCreate.Click, btnUpdate.Click, btnDelete.Click
-		If CurrentGrid = Grid.Inventory Then
-			If CType(sender, Button).Name.Equals("btnCreate") Then
-				Actions.Init(Action.CreateInventory, "Create a new item")
-			End If
 		End If
 	End Sub
 

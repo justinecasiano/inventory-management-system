@@ -1,5 +1,6 @@
 ﻿Module DataUtils
 
+	Property UserRole As String
 	Property DataGrid As DataGridView
 	Property CurrentTable As DataTable
 	Property BlankTable As DataTable
