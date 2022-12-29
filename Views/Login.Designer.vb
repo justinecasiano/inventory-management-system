@@ -22,7 +22,6 @@ Partial Class Login
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.Label5 = New System.Windows.Forms.Label()
@@ -42,7 +41,7 @@ Partial Class Login
 		'PictureBox1
 		'
 		Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-		Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+		Me.PictureBox1.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_title
 		Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.PictureBox1.Location = New System.Drawing.Point(61, 33)
 		Me.PictureBox1.Name = "PictureBox1"
@@ -53,7 +52,7 @@ Partial Class Login
 		'Panel1
 		'
 		Me.Panel1.BackColor = System.Drawing.Color.Transparent
-		Me.Panel1.BackgroundImage = CType(resources.GetObject("Panel1.BackgroundImage"), System.Drawing.Image)
+		Me.Panel1.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_credentials_background
 		Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.Panel1.Controls.Add(Me.Label5)
 		Me.Panel1.Controls.Add(Me.Panel6)
@@ -79,7 +78,7 @@ Partial Class Login
 		'
 		'Panel6
 		'
-		Me.Panel6.BackgroundImage = CType(resources.GetObject("Panel6.BackgroundImage"), System.Drawing.Image)
+		Me.Panel6.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_input
 		Me.Panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.Panel6.Controls.Add(Me.btnShowHide)
 		Me.Panel6.Controls.Add(Me.txtPassword)
@@ -90,7 +89,7 @@ Partial Class Login
 		'
 		'btnShowHide
 		'
-		Me.btnShowHide.BackgroundImage = CType(resources.GetObject("btnShowHide.BackgroundImage"), System.Drawing.Image)
+		Me.btnShowHide.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_password_show
 		Me.btnShowHide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.btnShowHide.FlatAppearance.BorderSize = 0
 		Me.btnShowHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -125,7 +124,7 @@ Partial Class Login
 		'
 		'Panel7
 		'
-		Me.Panel7.BackgroundImage = CType(resources.GetObject("Panel7.BackgroundImage"), System.Drawing.Image)
+		Me.Panel7.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_input
 		Me.Panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.Panel7.Controls.Add(Me.txtUsername)
 		Me.Panel7.Location = New System.Drawing.Point(25, 67)
@@ -146,7 +145,7 @@ Partial Class Login
 		'btnLogin
 		'
 		Me.btnLogin.BackColor = System.Drawing.Color.Transparent
-		Me.btnLogin.BackgroundImage = CType(resources.GetObject("btnLogin.BackgroundImage"), System.Drawing.Image)
+		Me.btnLogin.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_button
 		Me.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.btnLogin.FlatAppearance.BorderSize = 0
 		Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -164,7 +163,7 @@ Partial Class Login
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.Transparent
-		Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+		Me.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_background
 		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.Controls.Add(Me.Panel1)
 		Me.Controls.Add(Me.PictureBox1)

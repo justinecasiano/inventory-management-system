@@ -75,11 +75,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DAO\DaoCommon.vb" />
+    <Compile Include="Database\DAO\Commands.vb" />
+    <Compile Include="Database\DAO\UsersDao.vb" />
     <Compile Include="Enums\View.vb" />
-    <Compile Include="Login.Designer.vb">
+    <Compile Include="Views\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login.vb">
+    <Compile Include="Views\Login.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MainView.Designer.vb">
@@ -104,9 +107,28 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="PresenterCommon.vb" />
+    <Compile Include="Views\Notifications\LoginError.Designer.vb">
+      <DependentUpon>LoginError.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Notifications\LoginError.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Notifications\LoginSuccess.Designer.vb">
+      <DependentUpon>LoginSuccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Notifications\LoginSuccess.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Notifications\NotificationUtils.vb" />
+    <Compile Include="Views\Notifications\NotificationView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Notifications\NotificationView.Designer.vb">
+      <DependentUpon>NotificationView.vb</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
@@ -117,6 +139,15 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Notifications\LoginError.resx">
+      <DependentUpon>LoginError.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Notifications\LoginSuccess.resx">
+      <DependentUpon>LoginSuccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Notifications\NotificationView.resx">
+      <DependentUpon>NotificationView.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +163,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\Data\Donya Badiday Database.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\Data\Donya Badiday Mock Database.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Styles\application-icon.ico" />
     <Content Include="Styles\login-button.png" />
     <Content Include="Styles\login-background.png" />
@@ -140,6 +177,8 @@
     <Content Include="Styles\login-input.png" />
     <Content Include="Styles\login-password-show.png" />
     <Content Include="Styles\login-title.png" />
+    <Content Include="Styles\notif-login-error.png" />
+    <Content Include="Styles\notif-login-success.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

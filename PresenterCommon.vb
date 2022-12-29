@@ -36,4 +36,8 @@
 		button.Enabled = True
 	End Sub
 
+	Sub Notify(notif As UserControl)
+		NotificationUtils.ShowNotification(notif, Form)
+	End Sub
+
 End Module
