@@ -41,7 +41,7 @@ Partial Class LoginSuccess
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.Transparent
-		Me.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.notif_login_success
+		Me.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.login_notif_success
 		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.Controls.Add(Me.Label1)
 		Me.DoubleBuffered = True

@@ -30,7 +30,7 @@
 		Form.Opacity = 100
 	End Sub
 
-	Async Sub Delay(button As Button)
+	Async Sub Disable(button As Button)
 		button.Enabled = False
 		Await Task.Delay(1500)
 		button.Enabled = True
