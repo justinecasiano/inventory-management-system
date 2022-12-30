@@ -1,4 +1,6 @@
-﻿Module DataUtils
+﻿Imports System.Text.RegularExpressions
+
+Module DataUtils
 
 	Property UserRole As String
 	Property DataGrid As DataGridView
@@ -60,5 +62,22 @@
 					 row.Field(Of String)("Username").ToLower Like query
 			   Select row
 	End Function
+
+	Sub TextBoxUtil(txtbox As TextBox, pattern As String)
+		txtbox.Text = Regex.Replace(txtbox.Text, pattern, "")
+		txtbox.SelectionStart = txtbox.Text.Length
+		txtbox.SelectionLength = 0
+	End Sub
+
+	Sub Validate(isConditionTrue As Boolean, pic As PictureBox)
+		If isConditionTrue Then
+			pic.BackgroundImage = My.Resources.action_correct_input
+			pic.BackgroundImage.Tag = "Correct"
+		Else
+			pic.BackgroundImage = My.Resources.action_incorrect_input
+			pic.BackgroundImage.Tag = "Incorrect"
+		End If
+	End Sub
+
 
 End Module

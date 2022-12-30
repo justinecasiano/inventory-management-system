@@ -121,9 +121,6 @@
   <data name="application_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Styles\application-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="create_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Styles\create-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="dashboard_create_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Styles\dashboard-create-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,12 +163,6 @@
   <data name="login_input" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Styles\login-input.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="login_notif_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Styles\login-notif-error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="login_notif_success" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Styles\login-notif-success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="login_password_hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Styles\login-password-hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,5 +171,23 @@
   </data>
   <data name="login_title" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Styles\login-title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="action_correct_input" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Styles\action-correct-input.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="action_create_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Styles\action-create-button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="action_incorrect_input" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Styles\action-incorrect-input.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notif_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Styles\notif-error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notif_success" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Styles\notif-success.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="peso_sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Styles\peso-sign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

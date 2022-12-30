@@ -82,7 +82,9 @@
     <Compile Include="Database\DAO\InventoryDao.vb" />
     <Compile Include="Enums\Action.vb" />
     <Compile Include="Enums\Grid.vb" />
+    <Compile Include="Enums\Notification.vb" />
     <Compile Include="Enums\Table.vb" />
+    <Compile Include="Enums\Type.vb" />
     <Compile Include="Enums\View.vb" />
     <Compile Include="Views\Actions\Actions.Designer.vb">
       <DependentUpon>Actions.vb</DependentUpon>
@@ -114,12 +116,6 @@
     <Compile Include="Views\Dashboard\UsersGrid.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Login\Login.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Login\Login.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="MainView.Designer.vb">
       <DependentUpon>MainView.vb</DependentUpon>
     </Compile>
@@ -142,16 +138,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="PresenterCommon.vb" />
-    <Compile Include="Views\Login\LoginError.Designer.vb">
-      <DependentUpon>LoginError.vb</DependentUpon>
+    <Compile Include="Views\Login\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login\LoginError.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Login\LoginSuccess.Designer.vb">
-      <DependentUpon>LoginSuccess.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Login\LoginSuccess.vb">
+    <Compile Include="Views\Login\Login.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\NotificationUtils.vb" />
@@ -178,9 +168,6 @@
     <EmbeddedResource Include="Views\Dashboard\UsersGrid.resx">
       <DependentUpon>UsersGrid.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login\Login.resx">
-      <DependentUpon>Login.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.vb</DependentUpon>
     </EmbeddedResource>
@@ -190,11 +177,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login\LoginError.resx">
-      <DependentUpon>LoginError.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login\LoginSuccess.resx">
-      <DependentUpon>LoginSuccess.vb</DependentUpon>
+    <EmbeddedResource Include="Views\Login\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NotificationView.resx">
       <DependentUpon>NotificationView.vb</DependentUpon>
@@ -213,14 +197,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\Data\Donya Badiday Database.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Database\Data\Donya Badiday Mock Database.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Database\Data\Donya Badiday Database - Backup.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\Data\Donya Badiday Database.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Styles\action-correct-input.png" />
+    <Content Include="Styles\action-incorrect-input.png" />
     <Content Include="Styles\application-icon.ico" />
-    <Content Include="Styles\create-button.png" />
+    <Content Include="Styles\action-create-button.png" />
     <Content Include="Styles\dashboard-create-button.png" />
     <Content Include="Styles\dashboard-delete-button.png" />
     <Content Include="Styles\dashboard-update-button.png" />
@@ -237,9 +226,10 @@
     <Content Include="Styles\login-input.png" />
     <Content Include="Styles\login-password-show.png" />
     <Content Include="Styles\login-title.png" />
-    <Content Include="Styles\login-notif-error.png" />
-    <Content Include="Styles\login-notif-success.png" />
+    <Content Include="Styles\notif-error.png" />
+    <Content Include="Styles\notif-success.png" />
     <Content Include="Styles\dashboard-search-box.png" />
+    <Content Include="Styles\peso-sign.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -61,22 +61,42 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property application_icon() As System.Drawing.Icon
+        Friend ReadOnly Property action_correct_input() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("application_icon", resourceCulture)
-                Return CType(obj,System.Drawing.Icon)
+                Dim obj As Object = ResourceManager.GetObject("action_correct_input", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property create_button() As System.Drawing.Bitmap
+        Friend ReadOnly Property action_create_button() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("create_button", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("action_create_button", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property action_incorrect_input() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("action_incorrect_input", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property application_icon() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("application_icon", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         
@@ -223,26 +243,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property login_notif_error() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("login_notif_error", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property login_notif_success() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("login_notif_success", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Friend ReadOnly Property login_password_hide() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("login_password_hide", resourceCulture)
@@ -266,6 +266,36 @@ Namespace My.Resources
         Friend ReadOnly Property login_title() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("login_title", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property notif_error() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("notif_error", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property notif_success() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("notif_success", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property peso_sign() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("peso_sign", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

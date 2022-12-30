@@ -21,13 +21,14 @@
 					  .Select(Function(row) row).SingleOrDefault
 
 		btnLogin.Enabled = False
+
 		If account IsNot Nothing Then
 			DataUtils.UserRole = account.Field(Of String)("Role")
-			PresenterCommon.Notify(New LoginSuccess)
+			PresenterCommon.Notify(Notification.Login, Type.LoginSuccess, PresenterCommon.Form)
 			Await Task.Delay(2500)
 			PresenterCommon.Switch(View.Dashboard, True, FormWindowState.Maximized)
 		Else
-			PresenterCommon.Notify(New LoginError)
+			PresenterCommon.Notify(Notification.Login, Type.LoginError, PresenterCommon.Form)
 			Await Task.Delay(1500)
 			btnLogin.Enabled = True
 		End If

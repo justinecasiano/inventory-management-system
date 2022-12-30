@@ -30,8 +30,8 @@
 		Form.Opacity = 100
 	End Sub
 
-	Sub Notify(notif As UserControl)
-		NotificationUtils.ShowNotification(notif, Form)
+	Sub Notify(notif As Notification, type As Type, owner As Form)
+		NotificationUtils.ShowNotification(notif, type, owner)
 	End Sub
 
 End Module
