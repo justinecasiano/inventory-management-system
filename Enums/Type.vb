@@ -3,4 +3,5 @@
 	LoginSuccess
 	ActionError
 	CreateInventorySuccess
+	DeleteInventorySuccess
 End Enum

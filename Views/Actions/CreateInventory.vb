@@ -1,5 +1,4 @@
-﻿
-Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions
 
 Public Class CreateInventory
 
@@ -17,17 +16,16 @@ Public Class CreateInventory
 	Private Async Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
 		btnCreate.Enabled = False
 		If CheckInput() Then
-			InventoryDao.Create(New Object() _
-								{cboCategory.SelectedValue, txtItem.Text, numQuantity.Value,
-								 cboMeasurement.SelectedValue, txtPrice.Text, txtTotalPrice.Text,
-								 txtSupplier.Text, dateLastRestock.Value.ToShortDateString})
+			InventoryDao.Create(New Object() {cboCategory.SelectedValue, txtItem.Text, numQuantity.Value,
+											  cboMeasurement.SelectedValue, txtPrice.Text, txtTotalPrice.Text,
+											  txtSupplier.Text, dateLastRestock.Value.ToShortDateString})
 			DataUtils.Refresh(Table.Inventory)
 			PresenterCommon.Notify(Notification.Action, Type.CreateInventorySuccess, Actions.Form)
-			txtItem_TextChanged(sender, e)
 		Else
 			PresenterCommon.Notify(Notification.Action, Type.ActionError, Actions.Form)
 		End If
 		Await Task.Delay(1500)
+		txtItem_TextChanged(sender, e)
 		btnCreate.Enabled = True
 	End Sub
 

@@ -92,6 +92,12 @@
     <Compile Include="Views\Actions\Actions.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\Actions\DeleteInventory.Designer.vb">
+      <DependentUpon>DeleteInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Actions\DeleteInventory.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Views\Actions\CreateInventory.Designer.vb">
       <DependentUpon>CreateInventory.vb</DependentUpon>
     </Compile>
@@ -156,6 +162,9 @@
     <EmbeddedResource Include="Views\Actions\Actions.resx">
       <DependentUpon>Actions.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Actions\DeleteInventory.resx">
+      <DependentUpon>DeleteInventory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Actions\CreateInventory.resx">
       <DependentUpon>CreateInventory.vb</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +216,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Styles\action-correct-input.png" />
+    <Content Include="Styles\action-delete-button.png" />
     <Content Include="Styles\action-incorrect-input.png" />
     <Content Include="Styles\application-icon.ico" />
     <Content Include="Styles\action-create-button.png" />
@@ -230,6 +240,7 @@
     <Content Include="Styles\notif-success.png" />
     <Content Include="Styles\dashboard-search-box.png" />
     <Content Include="Styles\peso-sign.png" />
+    <Content Include="Styles\project-color-palette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

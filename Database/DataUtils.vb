@@ -79,5 +79,8 @@ Module DataUtils
 		End If
 	End Sub
 
+	Function GetSelectedRow(cell As Integer) As Object
+		Return DataGrid.SelectedRows(0).Cells(cell).Value
+	End Function
 
 End Module

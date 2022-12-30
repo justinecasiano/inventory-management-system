@@ -9,7 +9,7 @@ Module InventoryDao
 		DataTable.TableName = "Inventory"
 		Commands = New Commands
 		With Commands
-			.SelectCommand = "SELECT * FROM [Inventory] ORDER BY [ID]"
+			.SelectCommand = "SELECT * FROM [Inventory] ORDER BY [Category]"
 			.InsertCommand = "INSERT INTO [Inventory] ([Category], [Item], [Quantity], [Measurement], [Price], [Total Price], [Supplier], [Last Restock]) VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
 			.UpdateCommand = "UPDATE [Inventory] SET [Category]=?, [Item]=?, [Quantity]=?, [Measurement]=?, [Price]=?, [Total Price]=?, [Supplier]=?, [Last Restock]=? WHERE [ID]=?"
 			.DeleteCommand = "DELETE FROM [Inventory] WHERE [ID]=?"
@@ -32,6 +32,33 @@ Module InventoryDao
 			AddParameters(record, command)
 			connection.Open()
 			command.ExecuteNonQuery()
+		End Using
+	End Sub
+
+	Sub Update(record As Object())
+		Using connection As New OleDb.OleDbConnection(DaoCommon.ConnectionString),
+				command As New OleDb.OleDbCommand(Commands.UpdateCommand, connection)
+
+			DataTable.Clear()
+			AddParameters(record, command)
+			connection.Open()
+			With command
+				.Parameters.AddWithValue("ID", record(8))
+				.ExecuteNonQuery()
+			End With
+		End Using
+	End Sub
+
+	Sub Delete(id As Integer)
+		Using connection As New OleDb.OleDbConnection(DaoCommon.ConnectionString),
+				command As New OleDb.OleDbCommand(Commands.DeleteCommand, connection)
+
+			DataTable.Clear()
+			connection.Open()
+			With command
+				.Parameters.AddWithValue("ID", id)
+				.ExecuteNonQuery()
+			End With
 		End Using
 	End Sub
 

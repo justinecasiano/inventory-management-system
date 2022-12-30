@@ -6,13 +6,18 @@
 	Sub New()
 		InitializeComponent()
 		Views = New Dictionary(Of Action, UserControl) _
-				From {{Action.CreateInventory, New CreateInventory}}
+				From {{Action.CreateInventory, New CreateInventory},
+					  {Action.DeleteInventory, New DeleteInventory}}
 	End Sub
 
 	Public Shared Sub Init(action As Action, text As String)
 		Form = New Actions
 		Form.Switch(Views.Item(action), text)
 		Form.ShowDialog()
+	End Sub
+
+	Public Shared Sub CloseForm()
+		Form.Close()
 	End Sub
 
 	Public Sub Switch(view As UserControl, title As String)

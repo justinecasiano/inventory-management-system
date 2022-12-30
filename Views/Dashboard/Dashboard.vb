@@ -49,8 +49,11 @@ Public Class Dashboard
 
 	Private Sub btnAction(sender As Object, e As EventArgs) Handles btnCreate.Click, btnUpdate.Click, btnDelete.Click
 		If CurrentGrid = Grid.Inventory Then
-			If CType(sender, Button).Name.Equals("btnCreate") Then
+			Dim ButtonName = CType(sender, Button).Name
+			If ButtonName.Equals("btnCreate") Then
 				Actions.Init(Action.CreateInventory, "Create a new item")
+			ElseIf ButtonName.Equals("btnDelete") Then
+				Actions.Init(Action.DeleteInventory, "Delete an item")
 			End If
 		End If
 	End Sub

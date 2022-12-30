@@ -83,6 +83,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property action_delete_button() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("action_delete_button", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property action_incorrect_input() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("action_incorrect_input", resourceCulture)
@@ -296,6 +306,16 @@ Namespace My.Resources
         Friend ReadOnly Property peso_sign() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("peso_sign", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property project_color_palette() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("project_color_palette", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
