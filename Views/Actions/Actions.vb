@@ -7,6 +7,7 @@
 		InitializeComponent()
 		Views = New Dictionary(Of Action, UserControl) _
 				From {{Action.CreateInventory, New CreateInventory},
+					  {Action.UpdateInventory, New UpdateInventory},
 					  {Action.DeleteInventory, New DeleteInventory}}
 	End Sub
 

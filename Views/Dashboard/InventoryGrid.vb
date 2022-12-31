@@ -20,7 +20,6 @@
 		dgvTable.Columns.Item(5).DefaultCellStyle.Format = "c"
 		dgvTable.Columns.Item(6).DefaultCellStyle.Format = "c"
 		Await Task.Delay(200)
-		dgvTable.ScrollBars = ScrollBars.Vertical
 	End Sub
 
 End Class

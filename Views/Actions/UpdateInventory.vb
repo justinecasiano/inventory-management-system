@@ -1,9 +1,10 @@
 ﻿Imports System.Text.RegularExpressions
 
-Public Class CreateInventory
+Public Class UpdateInventory
 
 	Private Property Categories As List(Of String)
 	Private Property Measurements As List(Of String)
+	Private Property CurrentItem As String
 
 	Sub New()
 		InitializeComponent()
@@ -12,20 +13,21 @@ Public Class CreateInventory
 		dateLastRestock.Value = Date.Now
 	End Sub
 
-	Private Async Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
-		btnCreate.Enabled = False
+	Private Async Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+		btnUpdate.Enabled = False
 		If CheckInput() Then
-			InventoryDao.Create(New Object() {cboCategory.SelectedValue, txtItem.Text, numQuantity.Value,
+			InventoryDao.Update(New Object() {cboCategory.SelectedValue, txtItem.Text, numQuantity.Value,
 											  cboMeasurement.SelectedValue, txtPrice.Text, txtTotalPrice.Text,
-											  txtSupplier.Text, dateLastRestock.Value.ToShortDateString})
+											  txtSupplier.Text, dateLastRestock.Value.ToShortDateString, GetSelectedRow(0)})
 			DataUtils.Refresh(Table.Inventory)
 			PresenterCommon.Notify(Notification.Action, Type.CreateInventorySuccess, Actions.Form)
+			Await Task.Delay(1500)
+			Actions.CloseForm()
 		Else
 			PresenterCommon.Notify(Notification.Action, Type.ActionError, Actions.Form)
+			Await Task.Delay(1500)
+			btnUpdate.Enabled = True
 		End If
-		Await Task.Delay(1500)
-		txtItem_TextChanged(sender, e)
-		btnCreate.Enabled = True
 	End Sub
 
 	Private Function CheckInput() As Boolean
@@ -65,7 +67,7 @@ Public Class CreateInventory
 		cboMeasurement.DataSource = Measurements
 	End Sub
 
-	Private Sub CreateInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
+	Private Sub UpdateInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
 		For Each control In Controls
 			If TypeOf control Is PictureBox Then
 				Dim pic = CType(control, PictureBox)
@@ -74,6 +76,20 @@ Public Class CreateInventory
 				End If
 			End If
 		Next
+		cboCategory_DropDown(sender, e)
+		cboMeasurement_DropDown(sender, e)
+		FillDataFields()
+	End Sub
+
+	Private Sub FillDataFields()
+		cboCategory.Text = GetSelectedRow(1).ToString
+		txtItem.Text = GetSelectedRow(2).ToString
+		numQuantity.Value = CDec(GetSelectedRow(3))
+		cboMeasurement.Text = GetSelectedRow(4).ToString
+		txtPrice.Text = GetSelectedRow(5).ToString
+		txtTotalPrice.Text = GetSelectedRow(6).ToString
+		txtSupplier.Text = GetSelectedRow(7).ToString
+		dateLastRestock.Value = CDate(GetSelectedRow(8))
 	End Sub
 
 	Private Sub cboCategory_TextChanged(sender As Object, e As EventArgs) Handles cboCategory.TextChanged
@@ -90,7 +106,7 @@ Public Class CreateInventory
 	Private Function IsItemValid(item As String) As Boolean
 		Return Not InventoryDao.DataTable.Rows.Cast(Of DataRow) _
 				   .Where(Function(row) row.Field(Of String)("Item").ToLower.Equals(item.ToLower)) _
-				   .Any
+				   .Any OrElse item.Equals(GetSelectedRow(2).ToString)
 	End Function
 
 	Private Sub numQuantity_TextChanged(sender As Object, e As EventArgs) Handles numQuantity.TextChanged

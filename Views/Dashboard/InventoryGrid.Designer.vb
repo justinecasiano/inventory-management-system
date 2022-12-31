@@ -84,7 +84,7 @@ Partial Class InventoryGrid
 		DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(203, Byte), Integer), CType(CType(170, Byte), Integer))
 		DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
 		Me.dgvTable.RowsDefaultCellStyle = DataGridViewCellStyle4
-		Me.dgvTable.ScrollBars = System.Windows.Forms.ScrollBars.None
+		Me.dgvTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
 		Me.dgvTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
 		Me.dgvTable.ShowCellErrors = False
 		Me.dgvTable.ShowCellToolTips = False

@@ -2,7 +2,7 @@
 
 Public Class DeleteInventory
 
-	Property ID As Integer
+	Private Property ID As Integer
 
 	Private Async Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
 		btnDelete.Enabled = False
@@ -28,8 +28,7 @@ Public Class DeleteInventory
 	End Function
 
 	Private Sub DeleteInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
-		picItem.BackgroundImage = My.Resources.action_incorrect_input
-		picItem.BackgroundImage.Tag = "Incorrect"
+		txtItem_TextChanged(sender, e)
 		ID = CInt(GetSelectedRow(0))
 		txtItem.Text = GetSelectedRow(2).ToString
 	End Sub

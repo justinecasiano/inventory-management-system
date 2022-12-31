@@ -52,7 +52,9 @@ Public Class Dashboard
 			Dim ButtonName = CType(sender, Button).Name
 			If ButtonName.Equals("btnCreate") Then
 				Actions.Init(Action.CreateInventory, "Create a new item")
-			ElseIf ButtonName.Equals("btnDelete") Then
+			ElseIf ButtonName.Equals("btnUpdate") Then
+				Actions.Init(Action.UpdateInventory, "Update an item")
+			Else
 				Actions.Init(Action.DeleteInventory, "Delete an item")
 			End If
 		End If

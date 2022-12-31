@@ -10,6 +10,7 @@ Module NotificationUtils
 								  {Type.LoginSuccess, "Logged in successfully"},
 								  {Type.ActionError, "Fix incorrect or empty field"},
 								  {Type.CreateInventorySuccess, "Item created successfully"},
+								  {Type.UpdateInventorySuccess, "Item updated successfully"},
 								  {Type.DeleteInventorySuccess, "Item deleted successfully"}}
 	End Sub
 

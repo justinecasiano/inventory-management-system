@@ -3,5 +3,6 @@
 	LoginSuccess
 	ActionError
 	CreateInventorySuccess
+	UpdateInventorySuccess
 	DeleteInventorySuccess
 End Enum

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class CreateInventory
+Partial Class UpdateInventory
 	Inherits System.Windows.Forms.UserControl
 
 	'UserControl overrides dispose to clean up the component list.
@@ -34,6 +34,10 @@ Partial Class CreateInventory
 		Me.dateLastRestock = New System.Windows.Forms.DateTimePicker()
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
+		Me.Panel4 = New System.Windows.Forms.Panel()
+		Me.txtPrice = New System.Windows.Forms.TextBox()
+		Me.Panel3 = New System.Windows.Forms.Panel()
+		Me.txtTotalPrice = New System.Windows.Forms.TextBox()
 		Me.PictureBox2 = New System.Windows.Forms.PictureBox()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 		Me.picTotalPrice = New System.Windows.Forms.PictureBox()
@@ -48,12 +52,10 @@ Partial Class CreateInventory
 		Me.txtSupplier = New System.Windows.Forms.TextBox()
 		Me.Panel7 = New System.Windows.Forms.Panel()
 		Me.txtItem = New System.Windows.Forms.TextBox()
-		Me.btnCreate = New System.Windows.Forms.Button()
-		Me.Panel3 = New System.Windows.Forms.Panel()
-		Me.txtTotalPrice = New System.Windows.Forms.TextBox()
-		Me.Panel4 = New System.Windows.Forms.Panel()
-		Me.txtPrice = New System.Windows.Forms.TextBox()
+		Me.btnUpdate = New System.Windows.Forms.Button()
 		CType(Me.numQuantity, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.Panel4.SuspendLayout()
+		Me.Panel3.SuspendLayout()
 		CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.picTotalPrice, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,8 +68,6 @@ Partial Class CreateInventory
 		CType(Me.picCategory, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.Panel2.SuspendLayout()
 		Me.Panel7.SuspendLayout()
-		Me.Panel3.SuspendLayout()
-		Me.Panel4.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'cboCategory
@@ -177,7 +177,7 @@ Partial Class CreateInventory
 		Me.dateLastRestock.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
 		Me.dateLastRestock.Location = New System.Drawing.Point(164, 373)
 		Me.dateLastRestock.MaxDate = New Date(2050, 12, 31, 0, 0, 0, 0)
-		Me.dateLastRestock.MinDate = New Date(2022, 12, 1, 0, 0, 0, 0)
+		Me.dateLastRestock.MinDate = New Date(2022, 11, 1, 0, 0, 0, 0)
 		Me.dateLastRestock.Name = "dateLastRestock"
 		Me.dateLastRestock.Size = New System.Drawing.Size(131, 29)
 		Me.dateLastRestock.TabIndex = 40
@@ -204,6 +204,44 @@ Partial Class CreateInventory
 		Me.Label1.TabIndex = 50
 		Me.Label1.Text = "Total Price"
 		Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'Panel4
+		'
+		Me.Panel4.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_search_box
+		Me.Panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.Panel4.Controls.Add(Me.txtPrice)
+		Me.Panel4.Location = New System.Drawing.Point(193, 226)
+		Me.Panel4.Name = "Panel4"
+		Me.Panel4.Size = New System.Drawing.Size(155, 36)
+		Me.Panel4.TabIndex = 30
+		'
+		'txtPrice
+		'
+		Me.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.txtPrice.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtPrice.Location = New System.Drawing.Point(10, 8)
+		Me.txtPrice.Name = "txtPrice"
+		Me.txtPrice.Size = New System.Drawing.Size(135, 22)
+		Me.txtPrice.TabIndex = 0
+		'
+		'Panel3
+		'
+		Me.Panel3.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_search_box
+		Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.Panel3.Controls.Add(Me.txtTotalPrice)
+		Me.Panel3.Location = New System.Drawing.Point(193, 273)
+		Me.Panel3.Name = "Panel3"
+		Me.Panel3.Size = New System.Drawing.Size(155, 36)
+		Me.Panel3.TabIndex = 29
+		'
+		'txtTotalPrice
+		'
+		Me.txtTotalPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.txtTotalPrice.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtTotalPrice.Location = New System.Drawing.Point(10, 8)
+		Me.txtTotalPrice.Name = "txtTotalPrice"
+		Me.txtTotalPrice.Size = New System.Drawing.Size(135, 22)
+		Me.txtTotalPrice.TabIndex = 0
 		'
 		'PictureBox2
 		'
@@ -335,62 +373,24 @@ Partial Class CreateInventory
 		Me.txtItem.Size = New System.Drawing.Size(188, 22)
 		Me.txtItem.TabIndex = 0
 		'
-		'btnCreate
+		'btnUpdate
 		'
-		Me.btnCreate.AutoSize = True
-		Me.btnCreate.BackColor = System.Drawing.Color.Transparent
-		Me.btnCreate.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.action_create_button
-		Me.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.btnCreate.FlatAppearance.BorderSize = 0
-		Me.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnCreate.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCreate.ForeColor = System.Drawing.Color.White
-		Me.btnCreate.Location = New System.Drawing.Point(121, 439)
-		Me.btnCreate.Name = "btnCreate"
-		Me.btnCreate.Size = New System.Drawing.Size(227, 35)
-		Me.btnCreate.TabIndex = 24
-		Me.btnCreate.Text = "Create"
-		Me.btnCreate.UseVisualStyleBackColor = False
+		Me.btnUpdate.AutoSize = True
+		Me.btnUpdate.BackColor = System.Drawing.Color.Transparent
+		Me.btnUpdate.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.action_update_button
+		Me.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.btnUpdate.FlatAppearance.BorderSize = 0
+		Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnUpdate.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnUpdate.ForeColor = System.Drawing.Color.White
+		Me.btnUpdate.Location = New System.Drawing.Point(121, 439)
+		Me.btnUpdate.Name = "btnUpdate"
+		Me.btnUpdate.Size = New System.Drawing.Size(227, 35)
+		Me.btnUpdate.TabIndex = 24
+		Me.btnUpdate.Text = "Update"
+		Me.btnUpdate.UseVisualStyleBackColor = False
 		'
-		'Panel3
-		'
-		Me.Panel3.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_search_box
-		Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.Panel3.Controls.Add(Me.txtTotalPrice)
-		Me.Panel3.Location = New System.Drawing.Point(193, 273)
-		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(155, 36)
-		Me.Panel3.TabIndex = 29
-		'
-		'txtTotalPrice
-		'
-		Me.txtTotalPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.txtTotalPrice.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtTotalPrice.Location = New System.Drawing.Point(10, 8)
-		Me.txtTotalPrice.Name = "txtTotalPrice"
-		Me.txtTotalPrice.Size = New System.Drawing.Size(135, 22)
-		Me.txtTotalPrice.TabIndex = 0
-		'
-		'Panel4
-		'
-		Me.Panel4.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_search_box
-		Me.Panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.Panel4.Controls.Add(Me.txtPrice)
-		Me.Panel4.Location = New System.Drawing.Point(193, 226)
-		Me.Panel4.Name = "Panel4"
-		Me.Panel4.Size = New System.Drawing.Size(155, 36)
-		Me.Panel4.TabIndex = 30
-		'
-		'txtPrice
-		'
-		Me.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.txtPrice.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtPrice.Location = New System.Drawing.Point(10, 8)
-		Me.txtPrice.Name = "txtPrice"
-		Me.txtPrice.Size = New System.Drawing.Size(135, 22)
-		Me.txtPrice.TabIndex = 0
-		'
-		'CreateInventory
+		'UpdateInventory
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -421,10 +421,14 @@ Partial Class CreateInventory
 		Me.Controls.Add(Me.numQuantity)
 		Me.Controls.Add(Me.Panel7)
 		Me.Controls.Add(Me.cboCategory)
-		Me.Controls.Add(Me.btnCreate)
-		Me.Name = "CreateInventory"
+		Me.Controls.Add(Me.btnUpdate)
+		Me.Name = "UpdateInventory"
 		Me.Size = New System.Drawing.Size(465, 530)
 		CType(Me.numQuantity, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.Panel4.ResumeLayout(False)
+		Me.Panel4.PerformLayout()
+		Me.Panel3.ResumeLayout(False)
+		Me.Panel3.PerformLayout()
 		CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.picTotalPrice, System.ComponentModel.ISupportInitialize).EndInit()
@@ -439,15 +443,11 @@ Partial Class CreateInventory
 		Me.Panel2.PerformLayout()
 		Me.Panel7.ResumeLayout(False)
 		Me.Panel7.PerformLayout()
-		Me.Panel3.ResumeLayout(False)
-		Me.Panel3.PerformLayout()
-		Me.Panel4.ResumeLayout(False)
-		Me.Panel4.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
 	End Sub
-	Friend WithEvents btnCreate As Button
+	Friend WithEvents btnUpdate As Button
 	Friend WithEvents cboCategory As ComboBox
 	Friend WithEvents Panel7 As Panel
 	Friend WithEvents txtItem As TextBox
