@@ -39,7 +39,6 @@
 			dao.AddParameters(record, command)
 			connection.Open()
 			command.ExecuteNonQuery()
-			DataGridUtils.Refresh(table)
 		End Using
 	End Sub
 

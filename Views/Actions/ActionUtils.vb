@@ -4,14 +4,19 @@ Module ActionUtils
 
 	Property Form As ActionView
 	Property Views As Dictionary(Of Action, UserControl)
+	Property TextPattern As Dictionary(Of Field, String)
+	Property InputPattern As Dictionary(Of Field, String)
 
 	Sub Init()
-		Views = New Dictionary(Of Action, UserControl) _
-				From {{Action.CreateInventory, New CreateInventory},
-					  {Action.UpdateInventory, New UpdateInventory},
-					  {Action.DeleteInventory, New DeleteInventory},
-					  {Action.CreateUser, New CreateUser},
-					  {Action.UpdateUser, New UpdateUser}}
+		TextPattern = New Dictionary(Of Field, String) _
+					  From {{Field.ActionText, "[^a-zA-Z\s-()]"},
+							{Field.ActionNumber, "[^\d.]"},
+							{Field.LoginText, "[^a-zA-Z0-9]"}}
+
+		InputPattern = New Dictionary(Of Field, String) _
+					   From {{Field.ActionText, "^[a-zA-Z]{2,15}.*?$"},
+							 {Field.ActionNumber, "^[1-9]\d{0,4}(\.\d{0,2})?$"},
+							 {Field.LoginText, "^[a-zA-Z][a-zA-Z0-9]{3,10}$"}}
 	End Sub
 
 	Sub ShowAction(action As Action)
@@ -33,28 +38,28 @@ Module ActionUtils
 		Form.Close()
 	End Sub
 
-	Async Sub Create(form As UserControl, button As Button, type As Type, field As String, cell As Integer,
+	Async Sub Create(form As UserControl, button As Button, type As Type, field As String,
 							 table As Table, record As Object())
 		button.Enabled = False
 		If IsInputTrue(form) Then
 			DaoCommon.Create(table, record)
 			DataGridUtils.Refresh(table)
-			DataGridUtils.SetSelectedRow(field, cell)
+			DataGridUtils.SetSelectedRow(field)
 			NotifySuccess(type)
 		Else
 			NotifyError()
 		End If
-		Await Task.Delay(1500)
 		button.Enabled = True
+		Await Task.Delay(1500)
 	End Sub
 
-	Async Sub Update(form As UserControl, button As Button, field As String, cell As Integer,
-							 table As Table, name As String, value As Object, record As Object())
+	Async Sub Update(form As UserControl, button As Button, field As String, table As Table,
+					 name As String, value As Object, record As Object())
 		button.Enabled = False
 		If IsInputTrue(form) Then
 			DaoCommon.Update(table, name, value, record)
 			DataGridUtils.Refresh(table)
-			DataGridUtils.SetSelectedRow(field, cell)
+			SetSelectedRow(field)
 			Close()
 		Else
 			NotifyError()
@@ -68,6 +73,7 @@ Module ActionUtils
 		button.Enabled = False
 		If IsInputTrue(form) Then
 			DaoCommon.Delete(table, name, value)
+			DataGridUtils.Refresh(table)
 			Close()
 		Else
 			NotifyError()
@@ -93,9 +99,8 @@ Module ActionUtils
 					cbo.SelectedValue.ToString.Length > 0, pic)
 	End Sub
 
-	Sub Validate(txt As TextBox, text As String, pattern As String, pic As PictureBox, field As Field)
-		TextBoxUtil(txt, pattern)
-		ChangeImage(GetCondition(field, txt.Text, text), pic)
+	Sub Validate(condition As Boolean, pic As PictureBox)
+		ChangeImage(condition, pic)
 	End Sub
 
 	Sub TextBoxUtil(txtbox As TextBox, pattern As String)
@@ -104,22 +109,20 @@ Module ActionUtils
 		txtbox.SelectionLength = 0
 	End Sub
 
+	Function Match(text As String, field As Field) As Boolean
+		Return Regex.IsMatch(text, InputPattern(field))
+	End Function
+
 	Sub ChangeImage(form As UserControl)
-		form.Controls.OfType(Of PictureBox) _
-					 .Select(Function(pic)
-								 ChangeImage(Not pic.Name.Contains("pic"), pic)
-								 Return 1
-							 End Function
-							 )
+		For Each pic In form.Controls.OfType(Of PictureBox)
+			ChangeImage(pic.Name.Contains("pic"), pic)
+		Next
 	End Sub
 
 	Sub ChangeImage(form As UserControl, picLastRestock As PictureBox)
-		form.Controls.OfType(Of PictureBox) _
-					 .Select(Function(pic)
-								 ChangeImage(pic.Name.Equals(picLastRestock.Name), pic)
-								 Return 1
-							 End Function
-							 )
+		For Each pic In form.Controls.OfType(Of PictureBox)
+			If pic.Name.Contains("pic") Then ChangeImage(pic.Name.Equals(picLastRestock.Name), pic)
+		Next
 	End Sub
 
 	Sub ChangeImage(isConditionTrue As Boolean, pic As PictureBox)
@@ -133,52 +136,20 @@ Module ActionUtils
 	End Sub
 
 	Function IsInputTrue(form As UserControl) As Boolean
-		Dim image = form.Controls.OfType(Of PictureBox).Count
-		Dim correct = form.Controls.OfType(Of PictureBox) _
-								   .Where(Function(pic) pic.BackgroundImage.Tag.Equals("Correct")).Count
+		Dim image, correct As Integer
+		For Each pic In form.Controls.OfType(Of PictureBox)
+			If pic.Name.Contains("pic") Then
+				image += 1
+				If pic.BackgroundImage.Tag.Equals("Correct") Then correct += 1
+			End If
+		Next
 		Return image = correct
 	End Function
 
-	Function IsItemValid(item As String) As Boolean
-		Return Not DataTable.Rows.Cast(Of DataRow) _
-								 .Where(Function(row) row.Field(Of String)("Item").ToLower.Equals(item.ToLower)) _
-								 .Any
-	End Function
-
-	Function IsUsernameValid(username As String) As Boolean
-		Return Not DataTable.Rows.Cast(Of DataRow) _
-								 .Where(Function(row) row.Field(Of String)("Username").Equals(username)) _
-								 .Any
-	End Function
-
-	Function ChangeCase(field As String, cell As Integer) As String
+	Function ChangeCase(field As String) As String
 		Return DataGridView.Rows.Cast(Of DataGridViewRow) _
-								.Where(Function(row) row.Cells(cell).Value.ToString.ToLower.Equals(field.ToLower)) _
-								.Single.Cells(cell).Value.ToString
-	End Function
-
-	Function GetCondition(field As Field, text1 As String, text2 As String) As Boolean
-		Dim condition As Boolean
-		Select Case field
-			Case Field.Item
-				condition = Regex.IsMatch(text1, "^[a-zA-Z]{2,15}.*$") AndAlso IsItemValid(text1)
-			Case Field.Price
-				condition = Regex.IsMatch(text1, "^[1-9]\d{0,4}(\.\d{0,2})?$")
-			Case Field.TotalPrice
-				condition = Regex.IsMatch(text1, "^[1-9]\d{0,4}(\.\d{0,2})?$") AndAlso
-							text2.Length > 0 AndAlso
-							Not text2.Chars(0) = CChar("0") AndAlso
-							Decimal.Parse(text1) >= Decimal.Parse(text2)
-			Case Field.Supplier
-				condition = Regex.IsMatch(text1, "^[a-zA-Z]{2,15}.*$")
-			Case Field.Username
-				condition = Regex.IsMatch(text1, "^[a-zA-Z][a-zA-Z0-9]{3,10}$") AndAlso
-							IsUsernameValid(text1)
-			Case Field.Password
-				condition = Regex.IsMatch(text1, "^[a-zA-Z][a-zA-Z0-9]{3,10}$")
-		End Select
-
-		Return condition
+								.Where(Function(row) row.Cells(2).Value.ToString.ToLower.Equals(field.ToLower)) _
+								.Single.Cells(2).Value.ToString
 	End Function
 
 	Function GetCategories() As List(Of String)

@@ -1,8 +1,5 @@
 ﻿Enum Field
-	Username
-	Price
-	TotalPrice
-	Supplier
-	Item
-	Password
+	ActionText
+	ActionNumber
+	LoginText
 End Enum

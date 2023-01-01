@@ -21,19 +21,18 @@
 					  .Select(Function(row) row).SingleOrDefault
 
 		btnLogin.Enabled = False
-
 		If account IsNot Nothing Then
-			DataGridUtils.Role = account.Field(Of String)("Role")
+			Role = account.Field(Of String)("Role")
 			PresenterCommon.Notify(Notification.Login, Type.LoginSuccess, PresenterCommon.Form)
 			Await Task.Delay(2500)
 			PresenterCommon.Switch(View.Dashboard, True, FormWindowState.Maximized)
 		Else
 			PresenterCommon.Notify(Notification.Login, Type.LoginError, PresenterCommon.Form)
-			Await Task.Delay(1500)
 		End If
-		btnLogin.Enabled = True
 		txtUsername.Clear()
 		txtPassword.Clear()
+		Await Task.Delay(1500)
+		btnLogin.Enabled = True
 	End Sub
 
 End Class

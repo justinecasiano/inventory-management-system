@@ -64,7 +64,7 @@ Module DataGridUtils
 
 	Function IsMatch(row As DataRow, type As String, column As String) As Boolean
 		Dim record = If(type.Equals("Integer"), row.Field(Of Integer)(column).ToString, row.Field(Of String)(column).ToLower)
-		Query = $"^.*?{Query.ToLower}.*?$"
+		Query = $"^{Query.ToLower}.*?$"
 		Return Regex.IsMatch(record, Query)
 	End Function
 
@@ -72,10 +72,10 @@ Module DataGridUtils
 		Return DataGridView.SelectedRows(0).Cells(cell).Value
 	End Function
 
-	Sub SetSelectedRow(field As String, cell As Integer)
+	Sub SetSelectedRow(field As String)
 		DataGridView.CurrentCell =
 			DataGridView.Rows.Cast(Of DataGridViewRow) _
-							 .Where(Function(row) row.Cells(cell).Value.Equals(field)) _
+							 .Where(Function(row) row.Cells(2).Value.Equals(field)) _
 							 .Single.Cells(0)
 	End Sub
 

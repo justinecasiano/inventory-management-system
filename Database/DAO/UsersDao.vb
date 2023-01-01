@@ -12,7 +12,7 @@ Class UsersDao
 		With Commands
 			.SelectCommand = "SELECT * FROM [Users] ORDER BY [Role]"
 			.InsertCommand = "INSERT INTO [Users] ([Role], [Username], [Password]) VALUES(?, ?, ?)"
-			.UpdateCommand = "UPDATE [Users] SET [Role]=?, [Username]=?, [Password]=?, WHERE [Username]=?"
+			.UpdateCommand = "UPDATE [Users] SET [Role]=?, [Username]=?, [Password]=? WHERE [ID]=?"
 			.DeleteCommand = "DELETE FROM [Users] WHERE [Username]=?"
 		End With
 	End Sub

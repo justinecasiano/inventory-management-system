@@ -1,13 +1,15 @@
 ﻿
+Imports System.Text.RegularExpressions
+
 Public Class CreateInventory
 
 	Private Sub CreateInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
 		dateLastRestock.Value = Date.Now
-		ActionUtils.ChangeImage(Me, picLastRestock)
+		ChangeImage(Me, picLastRestock)
 	End Sub
 
 	Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
-		ActionUtils.Create(Me, btnCreate, Type.CreateInventorySuccess, txtItem.Text, 2, Table.Inventory,
+		ActionUtils.Create(Me, btnCreate, Type.CreateInventorySuccess, txtItem.Text, Table.Inventory,
 						   New Object() {cboCategory.SelectedValue, txtItem.Text, numQuantity.Value,
 										 cboMeasurement.SelectedValue, txtPrice.Text, txtTotalPrice.Text,
 										 txtSupplier.Text, dateLastRestock.Value.ToShortDateString})
@@ -27,8 +29,16 @@ Public Class CreateInventory
 	End Sub
 
 	Private Sub txtItem_TextChanged(sender As Object, e As EventArgs) Handles txtItem.TextChanged
-		ActionUtils.Validate(txtItem, "", "[^a-zA-Z\s-()]", picItem, Field.Item)
+		TextBoxUtil(txtItem, TextPattern(Field.ActionText))
+		ActionUtils.Validate(match(txtItem.Text, Field.ActionText) AndAlso
+							 IsItemValid(txtItem.Text), picItem)
 	End Sub
+
+	Function IsItemValid(item As String) As Boolean
+		Return Not DataTable.Rows.Cast(Of DataRow) _
+								 .Where(Function(row) row.Field(Of String)("Item").ToLower.Equals(item.ToLower)) _
+								 .Any
+	End Function
 
 	Private Sub numQuantity_TextChanged(sender As Object, e As EventArgs) Handles numQuantity.TextChanged
 		ActionUtils.Validate(numQuantity, picQuantity)
@@ -39,18 +49,23 @@ Public Class CreateInventory
 	End Sub
 
 	Private Sub txtPrice_TextChanged(sender As Object, e As EventArgs) Handles txtPrice.TextChanged
-		ActionUtils.Validate(txtPrice, "", "[^\d.]", picPrice, Field.Price)
+		TextBoxUtil(txtPrice, TextPattern(Field.ActionNumber))
+		ActionUtils.Validate(Match(txtPrice.Text, Field.ActionNumber), picPrice)
 		If txtPrice.TextLength > 0 Then
 			txtTotalPrice_TextChanged(sender, e)
 		End If
 	End Sub
 
 	Private Sub txtTotalPrice_TextChanged(sender As Object, e As EventArgs) Handles txtTotalPrice.TextChanged
-		ActionUtils.Validate(txtTotalPrice, txtPrice.Text, "[^\d.]", picTotalPrice, Field.TotalPrice)
+		TextBoxUtil(txtTotalPrice, TextPattern(Field.ActionNumber))
+		ActionUtils.Validate(Match(txtTotalPrice.Text, Field.ActionNumber) AndAlso
+							 Not txtPrice.Text.Chars(0) = CChar("0") AndAlso
+							 Decimal.Parse(txtTotalPrice.Text) >= Decimal.Parse(txtPrice.Text), picTotalPrice)
 	End Sub
 
 	Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
-		ActionUtils.Validate(txtSupplier, "", "[^a-zA-Z\s]", picSupplier, Field.Supplier)
+		TextBoxUtil(txtSupplier, TextPattern(Field.ActionText))
+		ActionUtils.Validate(Match(txtSupplier.Text, Field.ActionText), picSupplier)
 	End Sub
 
 End Class

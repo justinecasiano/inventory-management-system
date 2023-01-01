@@ -12,7 +12,7 @@ Class InventoryDao
 		With Commands
 			.SelectCommand = "SELECT * FROM [Inventory] ORDER BY [Category]"
 			.InsertCommand = "INSERT INTO [Inventory] ([Category], [Item], [Quantity], [Measurement], [Price], [Total Price], [Supplier], [Last Restock]) VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
-			.UpdateCommand = "UPDATE [Inventory] SET [Category]=?, [Item]=?, [Quantity]=?, [Measurement]=?, [Price]=?, [Total Price]=?, [Supplier]=?, [Last Restock]=? WHERE [Item]=?"
+			.UpdateCommand = "UPDATE [Inventory] SET [Category]=?, [Item]=?, [Quantity]=?, [Measurement]=?, [Price]=?, [Total Price]=?, [Supplier]=?, [Last Restock]=? WHERE [ID]=?"
 			.DeleteCommand = "DELETE FROM [Inventory] WHERE [Item]=?"
 		End With
 	End Sub

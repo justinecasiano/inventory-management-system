@@ -96,6 +96,8 @@ Partial Class DeleteInventory
 		Me.Controls.Add(Me.Panel7)
 		Me.Controls.Add(Me.btnDelete)
 		Me.Controls.Add(Me.picItem)
+		Me.MaximumSize = New System.Drawing.Size(465, 201)
+		Me.MinimumSize = New System.Drawing.Size(465, 201)
 		Me.Name = "DeleteInventory"
 		Me.Size = New System.Drawing.Size(465, 201)
 		Me.Panel7.ResumeLayout(False)

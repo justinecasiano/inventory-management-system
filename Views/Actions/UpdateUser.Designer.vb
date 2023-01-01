@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class CreateUser
+Partial Class UpdateUser
 	Inherits System.Windows.Forms.UserControl
 
 	'UserControl overrides dispose to clean up the component list.
@@ -29,7 +29,7 @@ Partial Class CreateUser
 		Me.picRole = New System.Windows.Forms.PictureBox()
 		Me.Panel7 = New System.Windows.Forms.Panel()
 		Me.txtUsername = New System.Windows.Forms.TextBox()
-		Me.btnCreate = New System.Windows.Forms.Button()
+		Me.btnUpdate = New System.Windows.Forms.Button()
 		Me.picPassword = New System.Windows.Forms.PictureBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.Panel1 = New System.Windows.Forms.Panel()
@@ -112,22 +112,22 @@ Partial Class CreateUser
 		Me.txtUsername.Size = New System.Drawing.Size(188, 22)
 		Me.txtUsername.TabIndex = 0
 		'
-		'btnCreate
+		'btnUpdate
 		'
-		Me.btnCreate.AutoSize = True
-		Me.btnCreate.BackColor = System.Drawing.Color.Transparent
-		Me.btnCreate.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.action_create_button
-		Me.btnCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.btnCreate.FlatAppearance.BorderSize = 0
-		Me.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnCreate.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCreate.ForeColor = System.Drawing.Color.White
-		Me.btnCreate.Location = New System.Drawing.Point(121, 215)
-		Me.btnCreate.Name = "btnCreate"
-		Me.btnCreate.Size = New System.Drawing.Size(227, 35)
-		Me.btnCreate.TabIndex = 24
-		Me.btnCreate.Text = "Create"
-		Me.btnCreate.UseVisualStyleBackColor = False
+		Me.btnUpdate.AutoSize = True
+		Me.btnUpdate.BackColor = System.Drawing.Color.Transparent
+		Me.btnUpdate.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.action_update_button
+		Me.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.btnUpdate.FlatAppearance.BorderSize = 0
+		Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnUpdate.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnUpdate.ForeColor = System.Drawing.Color.White
+		Me.btnUpdate.Location = New System.Drawing.Point(121, 215)
+		Me.btnUpdate.Name = "btnUpdate"
+		Me.btnUpdate.Size = New System.Drawing.Size(227, 35)
+		Me.btnUpdate.TabIndex = 24
+		Me.btnUpdate.Text = "Update"
+		Me.btnUpdate.UseVisualStyleBackColor = False
 		'
 		'picPassword
 		'
@@ -168,7 +168,7 @@ Partial Class CreateUser
 		Me.txtPassword.Size = New System.Drawing.Size(188, 22)
 		Me.txtPassword.TabIndex = 0
 		'
-		'CreateUser
+		'UpdateUser
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -182,10 +182,10 @@ Partial Class CreateUser
 		Me.Controls.Add(Me.Label2)
 		Me.Controls.Add(Me.Panel7)
 		Me.Controls.Add(Me.cboRole)
-		Me.Controls.Add(Me.btnCreate)
+		Me.Controls.Add(Me.btnUpdate)
 		Me.MaximumSize = New System.Drawing.Size(465, 306)
 		Me.MinimumSize = New System.Drawing.Size(465, 306)
-		Me.Name = "CreateUser"
+		Me.Name = "UpdateUser"
 		Me.Size = New System.Drawing.Size(465, 306)
 		CType(Me.picUsername, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.picRole, System.ComponentModel.ISupportInitialize).EndInit()
@@ -198,7 +198,7 @@ Partial Class CreateUser
 		Me.PerformLayout()
 
 	End Sub
-	Friend WithEvents btnCreate As Button
+	Friend WithEvents btnUpdate As Button
 	Friend WithEvents cboRole As ComboBox
 	Friend WithEvents Panel7 As Panel
 	Friend WithEvents txtUsername As TextBox

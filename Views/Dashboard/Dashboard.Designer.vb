@@ -23,38 +23,38 @@ Partial Class Dashboard
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.pnlMenu = New System.Windows.Forms.Panel()
+		Me.btnLogout = New System.Windows.Forms.Button()
+		Me.btnUsers = New System.Windows.Forms.Button()
+		Me.btnInventory = New System.Windows.Forms.Button()
 		Me.pnlUser = New System.Windows.Forms.Panel()
 		Me.lblUser = New System.Windows.Forms.Label()
+		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.pnlDashboardView = New System.Windows.Forms.Panel()
-		Me.pnlPlaceHolder = New System.Windows.Forms.Panel()
-		Me.Label1 = New System.Windows.Forms.Label()
-		Me.Panel2 = New System.Windows.Forms.Panel()
-		Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-		Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
-		Me.Panel4 = New System.Windows.Forms.Panel()
 		Me.Panel10 = New System.Windows.Forms.Panel()
 		Me.pnlDataGridHolder = New System.Windows.Forms.Panel()
 		Me.Panel9 = New System.Windows.Forms.Panel()
 		Me.Panel8 = New System.Windows.Forms.Panel()
 		Me.Panel6 = New System.Windows.Forms.Panel()
 		Me.Panel5 = New System.Windows.Forms.Panel()
+		Me.pnlPlaceHolder = New System.Windows.Forms.Panel()
 		Me.btnDelete = New System.Windows.Forms.Button()
 		Me.btnUpdate = New System.Windows.Forms.Button()
 		Me.btnCreate = New System.Windows.Forms.Button()
 		Me.Panel7 = New System.Windows.Forms.Panel()
 		Me.txtSearch = New System.Windows.Forms.TextBox()
-		Me.btnLogout = New System.Windows.Forms.Button()
-		Me.btnUsers = New System.Windows.Forms.Button()
-		Me.btnInventory = New System.Windows.Forms.Button()
-		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-		Me.Panel1 = New System.Windows.Forms.Panel()
+		Me.Label1 = New System.Windows.Forms.Label()
+		Me.Panel2 = New System.Windows.Forms.Panel()
+		Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.Panel4 = New System.Windows.Forms.Panel()
 		Me.pnlMenu.SuspendLayout()
 		Me.pnlUser.SuspendLayout()
-		Me.pnlDashboardView.SuspendLayout()
-		Me.pnlPlaceHolder.SuspendLayout()
-		Me.Panel10.SuspendLayout()
-		Me.Panel7.SuspendLayout()
 		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.pnlDashboardView.SuspendLayout()
+		Me.Panel10.SuspendLayout()
+		Me.pnlPlaceHolder.SuspendLayout()
+		Me.Panel7.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'pnlMenu
@@ -72,6 +72,59 @@ Partial Class Dashboard
 		Me.pnlMenu.Name = "pnlMenu"
 		Me.pnlMenu.Size = New System.Drawing.Size(277, 500)
 		Me.pnlMenu.TabIndex = 1
+		'
+		'btnLogout
+		'
+		Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(27, Byte), Integer))
+		Me.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom
+		Me.btnLogout.FlatAppearance.BorderSize = 0
+		Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+		Me.btnLogout.Image = Global.inventory_management_system.My.Resources.Resources.dashboard_logout
+		Me.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.btnLogout.Location = New System.Drawing.Point(0, 450)
+		Me.btnLogout.Name = "btnLogout"
+		Me.btnLogout.Padding = New System.Windows.Forms.Padding(35, 0, 50, 0)
+		Me.btnLogout.Size = New System.Drawing.Size(277, 50)
+		Me.btnLogout.TabIndex = 8
+		Me.btnLogout.Text = "Logout"
+		Me.btnLogout.UseVisualStyleBackColor = False
+		'
+		'btnUsers
+		'
+		Me.btnUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(27, Byte), Integer))
+		Me.btnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.btnUsers.Dock = System.Windows.Forms.DockStyle.Top
+		Me.btnUsers.FlatAppearance.BorderSize = 0
+		Me.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnUsers.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnUsers.Image = Global.inventory_management_system.My.Resources.Resources.dashboard_users_button
+		Me.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.btnUsers.Location = New System.Drawing.Point(0, 229)
+		Me.btnUsers.Name = "btnUsers"
+		Me.btnUsers.Padding = New System.Windows.Forms.Padding(5, 0, 110, 0)
+		Me.btnUsers.Size = New System.Drawing.Size(277, 39)
+		Me.btnUsers.TabIndex = 15
+		Me.btnUsers.Text = "Users"
+		Me.btnUsers.UseVisualStyleBackColor = False
+		'
+		'btnInventory
+		'
+		Me.btnInventory.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(27, Byte), Integer))
+		Me.btnInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.btnInventory.Dock = System.Windows.Forms.DockStyle.Top
+		Me.btnInventory.FlatAppearance.BorderSize = 0
+		Me.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.btnInventory.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnInventory.Image = Global.inventory_management_system.My.Resources.Resources.dashboard_inventory_button
+		Me.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.btnInventory.Location = New System.Drawing.Point(0, 184)
+		Me.btnInventory.Name = "btnInventory"
+		Me.btnInventory.Padding = New System.Windows.Forms.Padding(5, 0, 80, 0)
+		Me.btnInventory.Size = New System.Drawing.Size(277, 45)
+		Me.btnInventory.TabIndex = 13
+		Me.btnInventory.Text = "Inventory"
+		Me.btnInventory.UseVisualStyleBackColor = False
 		'
 		'pnlUser
 		'
@@ -96,6 +149,29 @@ Partial Class Dashboard
 		Me.lblUser.Text = "Owner"
 		Me.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
+		'PictureBox1
+		'
+		Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+		Me.PictureBox1.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_user_label
+		Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+		Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
+		Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+		Me.PictureBox1.Name = "PictureBox1"
+		Me.PictureBox1.Size = New System.Drawing.Size(277, 42)
+		Me.PictureBox1.TabIndex = 2
+		Me.PictureBox1.TabStop = False
+		'
+		'Panel1
+		'
+		Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(234, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(28, Byte), Integer))
+		Me.Panel1.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_logo
+		Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+		Me.Panel1.Location = New System.Drawing.Point(0, 0)
+		Me.Panel1.Name = "Panel1"
+		Me.Panel1.Size = New System.Drawing.Size(277, 116)
+		Me.Panel1.TabIndex = 0
+		'
 		'pnlDashboardView
 		'
 		Me.pnlDashboardView.Controls.Add(Me.Panel10)
@@ -108,66 +184,6 @@ Partial Class Dashboard
 		Me.pnlDashboardView.Name = "pnlDashboardView"
 		Me.pnlDashboardView.Size = New System.Drawing.Size(735, 500)
 		Me.pnlDashboardView.TabIndex = 2
-		'
-		'pnlPlaceHolder
-		'
-		Me.pnlPlaceHolder.Controls.Add(Me.btnDelete)
-		Me.pnlPlaceHolder.Controls.Add(Me.btnUpdate)
-		Me.pnlPlaceHolder.Controls.Add(Me.btnCreate)
-		Me.pnlPlaceHolder.Controls.Add(Me.Panel7)
-		Me.pnlPlaceHolder.Controls.Add(Me.Label1)
-		Me.pnlPlaceHolder.Controls.Add(Me.Panel2)
-		Me.pnlPlaceHolder.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.pnlPlaceHolder.Location = New System.Drawing.Point(28, 386)
-		Me.pnlPlaceHolder.Name = "pnlPlaceHolder"
-		Me.pnlPlaceHolder.Size = New System.Drawing.Size(674, 114)
-		Me.pnlPlaceHolder.TabIndex = 17
-		'
-		'Label1
-		'
-		Me.Label1.Dock = System.Windows.Forms.DockStyle.Left
-		Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.0!)
-		Me.Label1.Location = New System.Drawing.Point(0, 0)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(86, 36)
-		Me.Label1.TabIndex = 19
-		Me.Label1.Text = "Search"
-		Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'Panel2
-		'
-		Me.Panel2.BackColor = System.Drawing.Color.Transparent
-		Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.Panel2.Location = New System.Drawing.Point(0, 36)
-		Me.Panel2.Name = "Panel2"
-		Me.Panel2.Size = New System.Drawing.Size(674, 78)
-		Me.Panel2.TabIndex = 3
-		'
-		'FlowLayoutPanel2
-		'
-		Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.Transparent
-		Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left
-		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 27)
-		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(28, 473)
-		Me.FlowLayoutPanel2.TabIndex = 16
-		'
-		'FlowLayoutPanel3
-		'
-		Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.Transparent
-		Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right
-		Me.FlowLayoutPanel3.Location = New System.Drawing.Point(702, 27)
-		Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-		Me.FlowLayoutPanel3.Size = New System.Drawing.Size(33, 473)
-		Me.FlowLayoutPanel3.TabIndex = 15
-		'
-		'Panel4
-		'
-		Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-		Me.Panel4.Location = New System.Drawing.Point(0, 0)
-		Me.Panel4.Name = "Panel4"
-		Me.Panel4.Size = New System.Drawing.Size(735, 27)
-		Me.Panel4.TabIndex = 14
 		'
 		'Panel10
 		'
@@ -228,6 +244,20 @@ Partial Class Dashboard
 		Me.Panel5.Name = "Panel5"
 		Me.Panel5.Size = New System.Drawing.Size(674, 21)
 		Me.Panel5.TabIndex = 1
+		'
+		'pnlPlaceHolder
+		'
+		Me.pnlPlaceHolder.Controls.Add(Me.btnDelete)
+		Me.pnlPlaceHolder.Controls.Add(Me.btnUpdate)
+		Me.pnlPlaceHolder.Controls.Add(Me.btnCreate)
+		Me.pnlPlaceHolder.Controls.Add(Me.Panel7)
+		Me.pnlPlaceHolder.Controls.Add(Me.Label1)
+		Me.pnlPlaceHolder.Controls.Add(Me.Panel2)
+		Me.pnlPlaceHolder.Dock = System.Windows.Forms.DockStyle.Bottom
+		Me.pnlPlaceHolder.Location = New System.Drawing.Point(28, 386)
+		Me.pnlPlaceHolder.Name = "pnlPlaceHolder"
+		Me.pnlPlaceHolder.Size = New System.Drawing.Size(674, 114)
+		Me.pnlPlaceHolder.TabIndex = 17
 		'
 		'btnDelete
 		'
@@ -300,81 +330,51 @@ Partial Class Dashboard
 		Me.txtSearch.Size = New System.Drawing.Size(352, 22)
 		Me.txtSearch.TabIndex = 0
 		'
-		'btnLogout
+		'Label1
 		'
-		Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(27, Byte), Integer))
-		Me.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom
-		Me.btnLogout.FlatAppearance.BorderSize = 0
-		Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-		Me.btnLogout.Image = Global.inventory_management_system.My.Resources.Resources.dashboard_logout
-		Me.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnLogout.Location = New System.Drawing.Point(0, 450)
-		Me.btnLogout.Name = "btnLogout"
-		Me.btnLogout.Padding = New System.Windows.Forms.Padding(35, 0, 50, 0)
-		Me.btnLogout.Size = New System.Drawing.Size(277, 50)
-		Me.btnLogout.TabIndex = 8
-		Me.btnLogout.Text = "Logout"
-		Me.btnLogout.UseVisualStyleBackColor = False
+		Me.Label1.Dock = System.Windows.Forms.DockStyle.Left
+		Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.0!)
+		Me.Label1.Location = New System.Drawing.Point(0, 0)
+		Me.Label1.Name = "Label1"
+		Me.Label1.Size = New System.Drawing.Size(86, 36)
+		Me.Label1.TabIndex = 19
+		Me.Label1.Text = "Search"
+		Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
-		'btnUsers
+		'Panel2
 		'
-		Me.btnUsers.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(27, Byte), Integer))
-		Me.btnUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.btnUsers.Dock = System.Windows.Forms.DockStyle.Top
-		Me.btnUsers.FlatAppearance.BorderSize = 0
-		Me.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnUsers.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnUsers.Image = Global.inventory_management_system.My.Resources.Resources.dashboard_users_button
-		Me.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnUsers.Location = New System.Drawing.Point(0, 229)
-		Me.btnUsers.Name = "btnUsers"
-		Me.btnUsers.Padding = New System.Windows.Forms.Padding(5, 0, 110, 0)
-		Me.btnUsers.Size = New System.Drawing.Size(277, 39)
-		Me.btnUsers.TabIndex = 15
-		Me.btnUsers.Text = "Users"
-		Me.btnUsers.UseVisualStyleBackColor = False
+		Me.Panel2.BackColor = System.Drawing.Color.Transparent
+		Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+		Me.Panel2.Location = New System.Drawing.Point(0, 36)
+		Me.Panel2.Name = "Panel2"
+		Me.Panel2.Size = New System.Drawing.Size(674, 78)
+		Me.Panel2.TabIndex = 3
 		'
-		'btnInventory
+		'FlowLayoutPanel2
 		'
-		Me.btnInventory.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(27, Byte), Integer))
-		Me.btnInventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.btnInventory.Dock = System.Windows.Forms.DockStyle.Top
-		Me.btnInventory.FlatAppearance.BorderSize = 0
-		Me.btnInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-		Me.btnInventory.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnInventory.Image = Global.inventory_management_system.My.Resources.Resources.dashboard_inventory_button
-		Me.btnInventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-		Me.btnInventory.Location = New System.Drawing.Point(0, 184)
-		Me.btnInventory.Name = "btnInventory"
-		Me.btnInventory.Padding = New System.Windows.Forms.Padding(5, 0, 80, 0)
-		Me.btnInventory.Size = New System.Drawing.Size(277, 45)
-		Me.btnInventory.TabIndex = 13
-		Me.btnInventory.Text = "Inventory"
-		Me.btnInventory.UseVisualStyleBackColor = False
+		Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.Transparent
+		Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left
+		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 27)
+		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(28, 473)
+		Me.FlowLayoutPanel2.TabIndex = 16
 		'
-		'PictureBox1
+		'FlowLayoutPanel3
 		'
-		Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-		Me.PictureBox1.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_user_label
-		Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
-		Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-		Me.PictureBox1.Name = "PictureBox1"
-		Me.PictureBox1.Size = New System.Drawing.Size(277, 42)
-		Me.PictureBox1.TabIndex = 2
-		Me.PictureBox1.TabStop = False
+		Me.FlowLayoutPanel3.BackColor = System.Drawing.Color.Transparent
+		Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right
+		Me.FlowLayoutPanel3.Location = New System.Drawing.Point(702, 27)
+		Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+		Me.FlowLayoutPanel3.Size = New System.Drawing.Size(33, 473)
+		Me.FlowLayoutPanel3.TabIndex = 15
 		'
-		'Panel1
+		'Panel4
 		'
-		Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(234, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(28, Byte), Integer))
-		Me.Panel1.BackgroundImage = Global.inventory_management_system.My.Resources.Resources.dashboard_logo
-		Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-		Me.Panel1.Location = New System.Drawing.Point(0, 0)
-		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(277, 116)
-		Me.Panel1.TabIndex = 0
+		Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+		Me.Panel4.Location = New System.Drawing.Point(0, 0)
+		Me.Panel4.Name = "Panel4"
+		Me.Panel4.Size = New System.Drawing.Size(735, 27)
+		Me.Panel4.TabIndex = 14
 		'
 		'Dashboard
 		'
@@ -387,12 +387,12 @@ Partial Class Dashboard
 		Me.Size = New System.Drawing.Size(1012, 500)
 		Me.pnlMenu.ResumeLayout(False)
 		Me.pnlUser.ResumeLayout(False)
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.pnlDashboardView.ResumeLayout(False)
-		Me.pnlPlaceHolder.ResumeLayout(False)
 		Me.Panel10.ResumeLayout(False)
+		Me.pnlPlaceHolder.ResumeLayout(False)
 		Me.Panel7.ResumeLayout(False)
 		Me.Panel7.PerformLayout()
-		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub

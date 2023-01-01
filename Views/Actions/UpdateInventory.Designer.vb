@@ -422,6 +422,8 @@ Partial Class UpdateInventory
 		Me.Controls.Add(Me.Panel7)
 		Me.Controls.Add(Me.cboCategory)
 		Me.Controls.Add(Me.btnUpdate)
+		Me.MaximumSize = New System.Drawing.Size(465, 530)
+		Me.MinimumSize = New System.Drawing.Size(465, 530)
 		Me.Name = "UpdateInventory"
 		Me.Size = New System.Drawing.Size(465, 530)
 		CType(Me.numQuantity, System.ComponentModel.ISupportInitialize).EndInit()

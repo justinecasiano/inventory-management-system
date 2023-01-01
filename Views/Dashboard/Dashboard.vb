@@ -12,7 +12,7 @@ Public Class Dashboard
 	End Sub
 
 	Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
-		If DataGridUtils.Role.Equals("Staff") Then
+		If Role.Equals("Staff") Then
 			lblUser.Text = Role
 			btnUsers.Hide()
 		End If
@@ -83,4 +83,5 @@ Public Class Dashboard
 			txtSearch.Clear()
 		End If
 	End Sub
+
 End Class
