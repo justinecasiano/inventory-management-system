@@ -29,9 +29,11 @@
 			PresenterCommon.Switch(View.Dashboard, True, FormWindowState.Maximized)
 		Else
 			PresenterCommon.Notify(Notification.Login, Type.LoginError, PresenterCommon.Form)
+			txtUsername.Clear()
+			txtPassword.Clear()
 			Await Task.Delay(1500)
-			btnLogin.Enabled = True
 		End If
+		btnLogin.Enabled = True
 	End Sub
 
 End Class

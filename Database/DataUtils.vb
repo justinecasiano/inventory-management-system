@@ -27,6 +27,7 @@ Module DataUtils
 	End Sub
 
 	Sub Refresh(table As Table)
+		CurrentTable.Clear()
 		If table = Table.Inventory Then
 			InventoryDao.Read()
 		Else
@@ -81,6 +82,19 @@ Module DataUtils
 
 	Function GetSelectedRow(cell As Integer) As Object
 		Return DataGrid.SelectedRows(0).Cells(cell).Value
+	End Function
+
+	Sub SetSelectedRow(field As String, cell As Integer)
+		DataGrid.CurrentCell =
+			DataGrid.Rows.Cast(Of DataGridViewRow) _
+						 .Where(Function(row) row.Cells(cell).Value.Equals(field)) _
+						 .Single.Cells(0)
+	End Sub
+
+	Function ChangeCaseIfLower(field As String, cell As Integer) As String
+		Return DataGrid.Rows.Cast(Of DataGridViewRow) _
+							.Where(Function(row) row.Cells(cell).Value.ToString.ToLower.Equals(field.ToLower)) _
+							.Single.Cells(cell).Value.ToString
 	End Function
 
 End Module

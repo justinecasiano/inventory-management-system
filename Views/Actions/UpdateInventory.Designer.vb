@@ -329,7 +329,7 @@ Partial Class UpdateInventory
 		'picCategory
 		'
 		Me.picCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.picCategory.Location = New System.Drawing.Point(378, 49)
+		Me.picCategory.Location = New System.Drawing.Point(378, 53)
 		Me.picCategory.Name = "picCategory"
 		Me.picCategory.Size = New System.Drawing.Size(30, 29)
 		Me.picCategory.TabIndex = 42

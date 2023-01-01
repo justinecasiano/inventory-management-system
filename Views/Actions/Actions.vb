@@ -8,12 +8,13 @@
 		Views = New Dictionary(Of Action, UserControl) _
 				From {{Action.CreateInventory, New CreateInventory},
 					  {Action.UpdateInventory, New UpdateInventory},
-					  {Action.DeleteInventory, New DeleteInventory}}
+					  {Action.DeleteInventory, New DeleteInventory},
+					  {Action.CreateUser, New CreateUser}}
 	End Sub
 
-	Public Shared Sub Init(action As Action, text As String)
+	Public Shared Sub Init(action As Action)
 		Form = New Actions
-		Form.Switch(Views.Item(action), text)
+		Form.Switch(Views.Item(action))
 		Form.ShowDialog()
 	End Sub
 
@@ -21,8 +22,7 @@
 		Form.Close()
 	End Sub
 
-	Public Sub Switch(view As UserControl, title As String)
-		Me.Text = title
+	Public Sub Switch(view As UserControl)
 		Me.Size = view.Size
 		Me.Controls.Clear()
 		Me.Controls.Add(view)

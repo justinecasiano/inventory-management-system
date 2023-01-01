@@ -3,6 +3,7 @@ Module NotificationUtils
 
 	Property NotificationView As NotificationView
 	Property NotificationTexts As Dictionary(Of Type, String)
+	Property Properties As Dictionary(Of Notification, Integer())
 
 	Sub Init()
 		NotificationTexts = New Dictionary(Of Type, String) _
@@ -10,42 +11,28 @@ Module NotificationUtils
 								  {Type.LoginSuccess, "Logged in successfully"},
 								  {Type.ActionError, "Fix incorrect or empty field"},
 								  {Type.CreateInventorySuccess, "Item created successfully"},
-								  {Type.UpdateInventorySuccess, "Item updated successfully"},
-								  {Type.DeleteInventorySuccess, "Item deleted successfully"}}
+								  {Type.CreateUserSuccess, "User created successfully"}}
+		Properties = New Dictionary(Of Notification, Integer()) _
+					 From {{Notification.Login, {107, 195, 244, 175, 27}},
+						   {Notification.Action, {35, 107, 255, 222, 132}}}
 	End Sub
 
 	Sub ShowNotification(notif As Notification, type As Type, owner As Form)
-		GetNotificationData(notif, type, owner)
+		SetProperties(notif, type, owner)
 	End Sub
 
-	Sub GetNotificationData(notif As Notification, type As Type, owner As Form)
-		Dim top, left As Integer, color As Color, background As Image, text As String = ""
-
-		If notif = Notification.Login Then
-			top = 107
-			left = 195
-			color = Color.FromArgb(244, 175, 27)
-		ElseIf notif = Notification.Action Then
-			top = 35
-			left = 107
-			color = Color.FromArgb(255, 222, 132)
-		End If
-		background = If(type.ToString.Contains("Error"), My.Resources.notif_error, My.Resources.notif_success)
-		text = NotificationTexts.Item(type)
-
-		SetNotificationData(owner, top, left, color, background, text)
-	End Sub
-
-	Sub SetNotificationData(owner As Form, top As Integer, left As Integer, color As Color, background As Image, text As String)
+	Sub SetProperties(notif As Notification, type As Type, owner As Form)
 		Dim NotificationView As New NotificationView
+		Dim properties = NotificationUtils.Properties.Item(notif)
+		Dim top = CType(properties(0), Integer)
 		With NotificationView
 			.Owner = owner
 			.Location = owner.Location
-			.Top += top
-			.Left += left
-			.BackColor = color
-			.pnlBackground.BackgroundImage = background
-			.lblNotification.Text = text
+			.Top += properties(0)
+			.Left += properties(1)
+			.BackColor = Color.FromArgb(properties(2), properties(3), properties(4))
+			.pnlBackground.BackgroundImage = If(type.ToString.Contains("Error"), My.Resources.notif_error, My.Resources.notif_success)
+			.lblNotification.Text = NotificationTexts.Item(type)
 			.Show()
 		End With
 	End Sub

@@ -12,7 +12,7 @@ Module InventoryDao
 			.SelectCommand = "SELECT * FROM [Inventory] ORDER BY [Category]"
 			.InsertCommand = "INSERT INTO [Inventory] ([Category], [Item], [Quantity], [Measurement], [Price], [Total Price], [Supplier], [Last Restock]) VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
 			.UpdateCommand = "UPDATE [Inventory] SET [Category]=?, [Item]=?, [Quantity]=?, [Measurement]=?, [Price]=?, [Total Price]=?, [Supplier]=?, [Last Restock]=? WHERE [ID]=?"
-			.DeleteCommand = "DELETE FROM [Inventory] WHERE [ID]=?"
+			.DeleteCommand = "DELETE FROM [Inventory] WHERE [Item]=?"
 		End With
 	End Sub
 
@@ -20,6 +20,7 @@ Module InventoryDao
 		Using connection As New OleDb.OleDbConnection(DaoCommon.ConnectionString),
 				command As New OleDb.OleDbCommand(Commands.SelectCommand, connection),
 				adapter As New OleDb.OleDbDataAdapter(command)
+
 			adapter.Fill(DataTable)
 		End Using
 	End Sub
@@ -28,7 +29,6 @@ Module InventoryDao
 		Using connection As New OleDb.OleDbConnection(DaoCommon.ConnectionString),
 				command As New OleDb.OleDbCommand(Commands.InsertCommand, connection)
 
-			DataTable.Clear()
 			AddParameters(record, command)
 			connection.Open()
 			command.ExecuteNonQuery()
@@ -39,7 +39,6 @@ Module InventoryDao
 		Using connection As New OleDb.OleDbConnection(DaoCommon.ConnectionString),
 				command As New OleDb.OleDbCommand(Commands.UpdateCommand, connection)
 
-			DataTable.Clear()
 			AddParameters(record, command)
 			connection.Open()
 			With command
@@ -49,14 +48,13 @@ Module InventoryDao
 		End Using
 	End Sub
 
-	Sub Delete(id As Integer)
+	Sub Delete(item As Object)
 		Using connection As New OleDb.OleDbConnection(DaoCommon.ConnectionString),
 				command As New OleDb.OleDbCommand(Commands.DeleteCommand, connection)
 
-			DataTable.Clear()
 			connection.Open()
 			With command
-				.Parameters.AddWithValue("ID", id)
+				.Parameters.AddWithValue("Item", item)
 				.ExecuteNonQuery()
 			End With
 		End Using
@@ -64,14 +62,14 @@ Module InventoryDao
 
 	Sub AddParameters(record As Object(), command As OleDb.OleDbCommand)
 		With command
-			.Parameters.AddWithValue("Category", CType(record(0), String))
-			.Parameters.AddWithValue("Item", CType(record(1), String))
-			.Parameters.AddWithValue("Quantity", CType(record(2), Integer))
-			.Parameters.AddWithValue("Measurement", CType(record(3), String))
-			.Parameters.AddWithValue("Price", CType(record(4), Decimal))
-			.Parameters.AddWithValue("Total Price", CType(record(5), Decimal))
-			.Parameters.AddWithValue("Supplier", CType(record(6), String))
-			.Parameters.AddWithValue("Last Restock", CType(record(7), String))
+			.Parameters.AddWithValue("Category", record(0))
+			.Parameters.AddWithValue("Item", record(1))
+			.Parameters.AddWithValue("Quantity", record(2))
+			.Parameters.AddWithValue("Measurement", record(3))
+			.Parameters.AddWithValue("Price", record(4))
+			.Parameters.AddWithValue("Total Price", record(5))
+			.Parameters.AddWithValue("Supplier", record(6))
+			.Parameters.AddWithValue("Last Restock", record(7))
 		End With
 	End Sub
 

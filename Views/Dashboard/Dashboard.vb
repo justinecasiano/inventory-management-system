@@ -48,14 +48,19 @@ Public Class Dashboard
 	End Sub
 
 	Private Sub btnAction(sender As Object, e As EventArgs) Handles btnCreate.Click, btnUpdate.Click, btnDelete.Click
+		Dim ButtonName = CType(sender, Button).Name
+
 		If CurrentGrid = Grid.Inventory Then
-			Dim ButtonName = CType(sender, Button).Name
 			If ButtonName.Equals("btnCreate") Then
-				Actions.Init(Action.CreateInventory, "Create a new item")
+				Actions.Init(Action.CreateInventory)
 			ElseIf ButtonName.Equals("btnUpdate") Then
-				Actions.Init(Action.UpdateInventory, "Update an item")
+				Actions.Init(Action.UpdateInventory)
 			Else
-				Actions.Init(Action.DeleteInventory, "Delete an item")
+				Actions.Init(Action.DeleteInventory)
+			End If
+		Else
+			If ButtonName.Equals("btnCreate") Then
+				Actions.Init(Action.CreateUser)
 			End If
 		End If
 	End Sub
@@ -63,11 +68,17 @@ Public Class Dashboard
 	Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
 		If MessageBox.Show(PresenterCommon.Form, "Are you sure you want to logout?", "Logout",
 						   MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-			PresenterCommon.Form.Close()
+			PresenterCommon.Switch(View.Login, True)
 		End If
 	End Sub
 
 	Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
 		DataUtils.Search(txtSearch.Text)
+	End Sub
+
+	Private Sub txtSearch_LostFocus(sender As Object, e As EventArgs) Handles txtSearch.LostFocus
+		If DataUtils.DataGrid.DataSource Is BlankTable Then
+			txtSearch.Clear()
+		End If
 	End Sub
 End Class

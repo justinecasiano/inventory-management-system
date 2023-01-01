@@ -20,8 +20,7 @@ Public Class UpdateInventory
 											  cboMeasurement.SelectedValue, txtPrice.Text, txtTotalPrice.Text,
 											  txtSupplier.Text, dateLastRestock.Value.ToShortDateString, GetSelectedRow(0)})
 			DataUtils.Refresh(Table.Inventory)
-			PresenterCommon.Notify(Notification.Action, Type.CreateInventorySuccess, Actions.Form)
-			Await Task.Delay(1500)
+			DataUtils.SetSelectedRow(txtItem.Text, 2)
 			Actions.CloseForm()
 		Else
 			PresenterCommon.Notify(Notification.Action, Type.ActionError, Actions.Form)
@@ -99,8 +98,14 @@ Public Class UpdateInventory
 
 	Private Sub txtItem_TextChanged(sender As Object, e As EventArgs) Handles txtItem.TextChanged
 		DataUtils.TextBoxUtil(txtItem, "[^a-zA-Z\s]")
-		DataUtils.Validate(Regex.IsMatch(txtItem.Text, "^[a-zA-Z]{2,15}(\s[a-zA-Z]{2,15})?$") AndAlso
+		DataUtils.Validate(Regex.IsMatch(txtItem.Text, "^[a-zA-Z]{2,15}(\s[a-zA-Z]{2,15})?(\s[a-zA-Z]{2,15})?$") AndAlso
 						   IsItemValid(txtItem.Text), picItem)
+		If Not IsItemValid(txtItem.Text) Then
+			txtItem.Text = ChangeCaseIfLower(txtItem.Text, 2)
+			SetSelectedRow(txtItem.Text, 2)
+			txtItem_TextChanged(sender, e)
+			FillDataFields()
+		End If
 	End Sub
 
 	Private Function IsItemValid(item As String) As Boolean

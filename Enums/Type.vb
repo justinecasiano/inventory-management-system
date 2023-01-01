@@ -5,4 +5,5 @@
 	CreateInventorySuccess
 	UpdateInventorySuccess
 	DeleteInventorySuccess
+	CreateUserSuccess
 End Enum

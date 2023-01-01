@@ -2,15 +2,11 @@
 
 Public Class DeleteInventory
 
-	Private Property ID As Integer
-
 	Private Async Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
 		btnDelete.Enabled = False
 		If CheckInput() Then
-			InventoryDao.Delete(ID)
+			InventoryDao.Delete(txtItem.Text)
 			DataUtils.Refresh(Table.Inventory)
-			PresenterCommon.Notify(Notification.Action, Type.DeleteInventorySuccess, Actions.Form)
-			Await Task.Delay(1500)
 			Actions.CloseForm()
 		Else
 			PresenterCommon.Notify(Notification.Action, Type.ActionError, Actions.Form)
@@ -29,7 +25,6 @@ Public Class DeleteInventory
 
 	Private Sub DeleteInventory_Load(sender As Object, e As EventArgs) Handles Me.Load
 		txtItem_TextChanged(sender, e)
-		ID = CInt(GetSelectedRow(0))
 		txtItem.Text = GetSelectedRow(2).ToString
 	End Sub
 
