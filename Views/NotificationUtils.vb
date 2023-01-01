@@ -1,7 +1,6 @@
 ﻿
 Module NotificationUtils
 
-	Property NotificationView As NotificationView
 	Property NotificationTexts As Dictionary(Of Type, String)
 	Property Properties As Dictionary(Of Notification, Integer())
 
@@ -12,6 +11,7 @@ Module NotificationUtils
 								  {Type.ActionError, "Fix incorrect or empty field"},
 								  {Type.CreateInventorySuccess, "Item created successfully"},
 								  {Type.CreateUserSuccess, "User created successfully"}}
+
 		Properties = New Dictionary(Of Notification, Integer()) _
 					 From {{Notification.Login, {107, 195, 244, 175, 27}},
 						   {Notification.Action, {35, 107, 255, 222, 132}}}
@@ -22,9 +22,10 @@ Module NotificationUtils
 	End Sub
 
 	Sub SetProperties(notif As Notification, type As Type, owner As Form)
-		Dim NotificationView As New NotificationView
+		'refactor
 		Dim properties = NotificationUtils.Properties.Item(notif)
-		Dim top = CType(properties(0), Integer)
+
+		Dim NotificationView As New NotificationView
 		With NotificationView
 			.Owner = owner
 			.Location = owner.Location

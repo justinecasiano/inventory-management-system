@@ -12,8 +12,8 @@ Public Class Dashboard
 	End Sub
 
 	Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
-		If DataUtils.UserRole.Equals("Staff") Then
-			lblUser.Text = UserRole
+		If DataGridUtils.Role.Equals("Staff") Then
+			lblUser.Text = Role
 			btnUsers.Hide()
 		End If
 		Switch(Grid.Inventory)
@@ -52,15 +52,17 @@ Public Class Dashboard
 
 		If CurrentGrid = Grid.Inventory Then
 			If ButtonName.Equals("btnCreate") Then
-				Actions.Init(Action.CreateInventory)
+				ActionUtils.ShowAction(Action.CreateInventory)
 			ElseIf ButtonName.Equals("btnUpdate") Then
-				Actions.Init(Action.UpdateInventory)
+				ActionUtils.ShowAction(Action.UpdateInventory)
 			Else
-				Actions.Init(Action.DeleteInventory)
+				ActionUtils.ShowAction(Action.DeleteInventory)
 			End If
 		Else
 			If ButtonName.Equals("btnCreate") Then
-				Actions.Init(Action.CreateUser)
+				ActionUtils.ShowAction(Action.CreateUser)
+			ElseIf ButtonName.Equals("btnUpdate") Then
+				ActionUtils.ShowAction(Action.UpdateUser)
 			End If
 		End If
 	End Sub
@@ -73,11 +75,11 @@ Public Class Dashboard
 	End Sub
 
 	Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-		DataUtils.Search(txtSearch.Text)
+		DataGridUtils.Search(txtSearch.Text)
 	End Sub
 
 	Private Sub txtSearch_LostFocus(sender As Object, e As EventArgs) Handles txtSearch.LostFocus
-		If DataUtils.DataGrid.DataSource Is BlankTable Then
+		If DataGridUtils.DataGridView.DataSource Is BlankDataTable Then
 			txtSearch.Clear()
 		End If
 	End Sub

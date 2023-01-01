@@ -1,4 +1,4 @@
-﻿Public Enum View
+﻿Enum View
 	Login
 	Dashboard
 End Enum

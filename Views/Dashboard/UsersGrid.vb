@@ -2,13 +2,13 @@
 
 	Sub New()
 		InitializeComponent()
-		DataUtils.Init(dgvTable)
-		DataUtils.Populate(Table.Users)
+		DataGridUtils.Init(dgvTable)
+		DataGridUtils.Populate(Table.Users)
 	End Sub
 
 	Public Sub Init()
-		DataUtils.Init(dgvTable)
-		DataUtils.ChangeTable(Table.Users)
+		DataGridUtils.Init(dgvTable)
+		DataGridUtils.ChangeTable(Table.Users)
 	End Sub
 
 End Class

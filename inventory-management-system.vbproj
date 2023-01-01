@@ -77,20 +77,29 @@
   <ItemGroup>
     <Compile Include="Database\DAO\DaoCommon.vb" />
     <Compile Include="Database\DAO\Commands.vb" />
+    <Compile Include="Database\DAO\IDao.vb" />
     <Compile Include="Database\DAO\UsersDao.vb" />
-    <Compile Include="Database\DataUtils.vb" />
+    <Compile Include="Database\DataGridUtils.vb" />
     <Compile Include="Database\DAO\InventoryDao.vb" />
     <Compile Include="Enums\Action.vb" />
+    <Compile Include="Enums\Field.vb" />
     <Compile Include="Enums\Grid.vb" />
     <Compile Include="Enums\Notification.vb" />
     <Compile Include="Enums\Table.vb" />
     <Compile Include="Enums\Type.vb" />
     <Compile Include="Enums\View.vb" />
-    <Compile Include="Views\Actions\Actions.Designer.vb">
-      <DependentUpon>Actions.vb</DependentUpon>
+    <Compile Include="Views\Actions\ActionUtils.vb" />
+    <Compile Include="Views\Actions\ActionView.Designer.vb">
+      <DependentUpon>ActionView.vb</DependentUpon>
     </Compile>
-    <Compile Include="Views\Actions\Actions.vb">
+    <Compile Include="Views\Actions\ActionView.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Actions\UpdateUser.Designer.vb">
+      <DependentUpon>UpdateUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Actions\UpdateUser.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Actions\CreateUser.Designer.vb">
       <DependentUpon>CreateUser.vb</DependentUpon>
@@ -171,8 +180,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Actions\Actions.resx">
-      <DependentUpon>Actions.vb</DependentUpon>
+    <EmbeddedResource Include="Views\Actions\ActionView.resx">
+      <DependentUpon>ActionView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Actions\UpdateUser.resx">
+      <DependentUpon>UpdateUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Actions\CreateUser.resx">
       <DependentUpon>CreateUser.vb</DependentUpon>

@@ -15,7 +15,7 @@
 	End Sub
 
 	Private Shadows Async Sub Validate(username As String, password As String)
-		Dim account = UsersDao.DataTable.Rows.Cast(Of DataRow) _
+		Dim account = DAOs.Item(Table.Users).DataTable.Rows.Cast(Of DataRow) _
 					  .Where(Function(row) row.Field(Of String)("Username").Equals(username) And
 										   row.Field(Of String)("Password").Equals(password)) _
 					  .Select(Function(row) row).SingleOrDefault
@@ -23,17 +23,17 @@
 		btnLogin.Enabled = False
 
 		If account IsNot Nothing Then
-			DataUtils.UserRole = account.Field(Of String)("Role")
+			DataGridUtils.Role = account.Field(Of String)("Role")
 			PresenterCommon.Notify(Notification.Login, Type.LoginSuccess, PresenterCommon.Form)
 			Await Task.Delay(2500)
 			PresenterCommon.Switch(View.Dashboard, True, FormWindowState.Maximized)
 		Else
 			PresenterCommon.Notify(Notification.Login, Type.LoginError, PresenterCommon.Form)
-			txtUsername.Clear()
-			txtPassword.Clear()
 			Await Task.Delay(1500)
 		End If
 		btnLogin.Enabled = True
+		txtUsername.Clear()
+		txtPassword.Clear()
 	End Sub
 
 End Class

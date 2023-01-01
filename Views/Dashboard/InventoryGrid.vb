@@ -2,13 +2,13 @@
 
 	Sub New()
 		InitializeComponent()
-		DataUtils.Init(dgvTable)
-		DataUtils.Populate(Table.Inventory)
+		DataGridUtils.Init(dgvTable)
+		DataGridUtils.Populate(Table.Inventory)
 	End Sub
 
 	Public Sub Init()
-		DataUtils.Init(dgvTable)
-		DataUtils.ChangeTable(Table.Inventory)
+		DataGridUtils.Init(dgvTable)
+		DataGridUtils.ChangeTable(Table.Inventory)
 	End Sub
 
 	Private Async Sub dgvTable_DataBindingComplete(sender As Object, e As DataGridViewBindingCompleteEventArgs) Handles dgvTable.DataBindingComplete

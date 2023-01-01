@@ -1,4 +1,4 @@
-﻿Public Enum Table
+﻿Enum Table
 	Inventory
 	Users
 End Enum

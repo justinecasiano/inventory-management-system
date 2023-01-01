@@ -1,4 +1,4 @@
-﻿Public Enum Notification
+﻿Enum Notification
 	Login
 	Action
 End Enum

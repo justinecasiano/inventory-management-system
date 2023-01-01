@@ -1,4 +1,4 @@
-﻿Public Enum Type
+﻿Enum Type
 	LoginError
 	LoginSuccess
 	ActionError

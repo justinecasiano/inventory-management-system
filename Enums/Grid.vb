@@ -1,4 +1,4 @@
-﻿Public Enum Grid
+﻿Enum Grid
 	None
 	Inventory
 	Users
