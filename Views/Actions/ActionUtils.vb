@@ -153,24 +153,21 @@ Module ActionUtils
 	End Function
 
 	Function GetCategories() As List(Of String)
-		Return DataTable.Rows.Cast(Of DataRow) _
-							 .Select(Function(row) row.Field(Of String)("Category")) _
-							 .Distinct() _
-							 .ToList()
+		Return New List(Of String) _
+			   From {"Processed Food", "Condiment",
+					 "Beverage", "Flavoring", "Halo-halo",
+					 "Add-on", "Essential", "Pancit"}
 	End Function
 
 	Function GetMeasurements() As List(Of String)
-		Return DataTable.Rows.Cast(Of DataRow) _
-							 .Select(Function(row) row.Field(Of String)("Measurement")) _
-							 .Distinct() _
-							 .ToList()
+		Return New List(Of String) _
+			   From {"pc", "pcs", "mL", "L",
+					 "pack", "packs", "box", "boxes"}
 	End Function
 
 	Function GetRoles() As List(Of String)
-		Return DataTable.Rows.Cast(Of DataRow) _
-							 .Select(Function(row) row.Field(Of String)("Role")) _
-							 .Distinct() _
-							 .ToList()
+		Return New List(Of String) _
+			   From {"Owner", "Staff"}
 	End Function
 
 End Module

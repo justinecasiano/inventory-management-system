@@ -134,6 +134,12 @@
     <Compile Include="Views\Actions\CreateInventory.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Views\Actions\DeleteUser.Designer.vb">
+      <DependentUpon>DeleteUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Actions\DeleteUser.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Views\Actions\UpdateUser.Designer.vb">
       <DependentUpon>UpdateUser.vb</DependentUpon>
     </Compile>
@@ -210,6 +216,9 @@
     <EmbeddedResource Include="Views\Actions\CreateInventory.resx">
       <DependentUpon>CreateInventory.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Actions\DeleteUser.resx">
+      <DependentUpon>DeleteUser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Actions\UpdateUser.resx">
       <DependentUpon>UpdateUser.vb</DependentUpon>
     </EmbeddedResource>
@@ -251,13 +260,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\Data\Donya Badiday Database - Copy.accdb">
+    <Content Include="Database\Data\Donya Badiday Database - Original - Copy.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database\Data\Donya Badiday Database-Original.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database\Data\Donya Badiday Mock Database.accdb">
+    <Content Include="Database\Data\Donya Badiday Database.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Styles\action-correct-input.png" />

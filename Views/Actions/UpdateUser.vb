@@ -42,7 +42,7 @@ Public Class UpdateUser
 
 	Function IsUsernameValid(username As String) As Boolean
 		Return Not DataTable.Rows.Cast(Of DataRow) _
-							 .Where(Function(row) row.Field(Of String)("Username").Equals(username)) _
+							 .Where(Function(row) row.Field(Of String)("Username").tolower.Equals(username.ToLower)) _
 							 .Any OrElse username.Equals(GetSelectedRow(2).ToString)
 	End Function
 

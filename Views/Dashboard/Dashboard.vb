@@ -62,7 +62,19 @@ Public Class Dashboard
 			If ButtonName.Equals("btnCreate") Then
 				ActionUtils.ShowAction(Action.CreateUser)
 			ElseIf ButtonName.Equals("btnUpdate") Then
-				ActionUtils.ShowAction(Action.UpdateUser)
+				If GetSelectedRow(2).ToString.Equals("admin") Then
+					MessageBox.Show(ActionUtils.Form, "Default account cannot be updated", "Error",
+									MessageBoxButtons.OK, MessageBoxIcon.Error)
+				Else
+					ActionUtils.ShowAction(Action.UpdateUser)
+				End If
+			Else
+				If GetSelectedRow(2).ToString.Equals("admin") Then
+					MessageBox.Show(ActionUtils.Form, "Default account cannot be deleted", "Error",
+									MessageBoxButtons.OK, MessageBoxIcon.Error)
+				Else
+					ActionUtils.ShowAction(Action.DeleteUser)
+				End If
 			End If
 		End If
 	End Sub

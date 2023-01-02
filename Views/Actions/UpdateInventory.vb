@@ -77,6 +77,7 @@ Public Class UpdateInventory
 	Private Sub txtTotalPrice_TextChanged(sender As Object, e As EventArgs) Handles txtTotalPrice.TextChanged
 		TextBoxUtil(txtTotalPrice, TextPattern(Field.ActionNumber))
 		ActionUtils.Validate(Match(txtTotalPrice.Text, Field.ActionNumber) AndAlso
+							 txtPrice.TextLength > 0 AndAlso
 							 Not txtPrice.Text.Chars(0) = CChar("0") AndAlso
 							 Decimal.Parse(txtTotalPrice.Text) >= Decimal.Parse(txtPrice.Text), picTotalPrice)
 	End Sub

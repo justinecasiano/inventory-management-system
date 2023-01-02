@@ -7,7 +7,8 @@
 								  {Action.UpdateInventory, New UpdateInventory},
 								  {Action.DeleteInventory, New DeleteInventory},
 								  {Action.CreateUser, New CreateUser},
-								  {Action.UpdateUser, New UpdateUser}}
+								  {Action.UpdateUser, New UpdateUser},
+								  {Action.DeleteUser, New DeleteUser}}
 	End Sub
 
 End Class

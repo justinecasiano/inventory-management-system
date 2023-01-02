@@ -4,4 +4,5 @@
 	DeleteInventory
 	CreateUser
 	UpdateUser
+	DeleteUser
 End Enum

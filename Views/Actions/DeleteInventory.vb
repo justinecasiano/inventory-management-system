@@ -14,6 +14,7 @@ Public Class DeleteInventory
 		TextBoxUtil(txtItem, TextPattern(Field.ActionText))
 		ActionUtils.Validate(Match(txtItem.Text, Field.ActionText) AndAlso
 							 IsItemValid(txtItem.Text), picItem)
+
 		If IsItemValid(txtItem.Text) Then
 			txtItem.Text = ChangeCase(txtItem.Text)
 			SetSelectedRow(txtItem.Text)
